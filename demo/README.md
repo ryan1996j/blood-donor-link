@@ -19,7 +19,7 @@ If dependencies are missing on a new computer, run `npm.cmd install` once first.
 1. Filter by township and exact blood group.
 2. Switch between English and Burmese with the top-right button.
 3. Click the profile icon at the top right to open demo login. Select a fictional donor and continue; the same icon then opens My profile. This is simulated login, not secure authentication.
-   To create a new profile, use Create donor profile beside Find a donor. Fill in the fictional nickname, demo phone, township and blood group. The profile starts hidden and opens in My profile after creation.
+   To create a new profile, use Create donor profile beside Find a donor. Fill in the fictional nickname, demo phone, township and blood group. The profile appears in search after creation. A success alert appears on the search page; use the top-right profile icon to manage the profile later.
 4. Edit nickname, township, or blood group, then save.
 5. Hide a profile and check that it disappears from search. Show it to restore it.
 6. Delete a profile. Cancel keeps it; Confirm removes it.
