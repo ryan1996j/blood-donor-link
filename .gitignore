@@ -1,0 +1,9 @@
+**/node_modules/
+**/dist/
+**/.npm-cache/
+*.log
+.env
+.env.*
+!.env.example
+qa_v3/
+build_prd.py
