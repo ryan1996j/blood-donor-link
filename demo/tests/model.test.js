@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { seed,filterDonors,valid,recordDonation,paused,PAUSE_MS,setAvailability,donationDateTimestamp } from '../src/data.js';
+import { seed,filterDonors,valid,recordDonation,paused,PAUSE_MS,setAvailability,donationDateTimestamp,openedProfilePhone } from '../src/data.js';
 test('reported donation dates validate and exclude profiles until day 90',()=>{
  const now=Date.parse('2026-10-31T05:00:00Z');
  const at=donationDateTimestamp('2026-10-01',now);
@@ -35,18 +35,30 @@ test('saved data validation handles deletion, corruption and invalid values',()=
 test('donation enforces exact 90 day pause through refresh and edits',()=>{
  const now=Date.parse('2026-10-30T12:00:00Z');
  const donor=recordDonation(seed()[0],now);
- assert.equal(donor.visible,false);
+ assert.equal(donor.visible,true);
  assert.equal(paused(donor,now+PAUSE_MS-1),true);
- assert.equal(setAvailability(donor,true,now+1000).visible,false);
+ assert.equal(filterDonors([setAvailability(donor,true)],'','',now+1000).length,0);
  const reloaded=JSON.parse(JSON.stringify({...donor,alias:'Changed',phone:'DEMO-1234'}));
  assert.equal(valid([reloaded]),true);
  assert.equal(filterDonors([{...reloaded,visible:true}],'','',now+PAUSE_MS-1).length,0);
  assert.equal(paused(reloaded,now+PAUSE_MS),false);
- assert.equal(filterDonors([reloaded],'','',now+PAUSE_MS).length,0,'manual reconfirmation required');
+ assert.equal(filterDonors([reloaded],'','',now+PAUSE_MS).length,1,'automatically returns at 90 days');
+ assert.equal(filterDonors([setAvailability(reloaded,false)],'','',now+PAUSE_MS).length,0,'manual break survives the donation pause');
+ assert.equal(recordDonation({...seed()[0],visible:false},now).visible,false);
  assert.equal(filterDonors([setAvailability(reloaded,true,now+PAUSE_MS)],'','',now+PAUSE_MS).length,1);
 });
 test('legacy demo profiles migrate without losing edits and invalid new fields fail validation',()=>{
  assert.equal(valid(seed()),true);
  assert.equal(valid([{...seed()[0],phone:'09123456789'}]),false);
  assert.equal(valid([{...seed()[0],lastDonationAt:'not-a-date'}]),false);
+});
+
+test('opened profile contact respects current availability',()=>{
+ const now=Date.parse('2026-11-01T00:00:00Z');
+ const donor={...seed()[0],phone:'DEMO-9876'};
+ assert.equal(openedProfilePhone(donor,now),'DEMO-9876');
+ assert.equal(openedProfilePhone({...donor,visible:false},now),null);
+ const resting=recordDonation(donor,now);
+ assert.equal(openedProfilePhone(resting,now+PAUSE_MS-1),null);
+ assert.equal(openedProfilePhone(resting,now+PAUSE_MS),'DEMO-9876');
 });

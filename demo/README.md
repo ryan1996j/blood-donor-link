@@ -72,3 +72,10 @@ No database, Supabase project or real email sender is connected. Only fictional 
 ## Search result batches
 
 Search shows 10 matching donors initially, with a visible/total count. Load more adds up to 10 at a time. Changing state, township or blood group resets the displayed batch; Clear filters does too. All data still comes from browser-local storage; this is UI pagination, not server-side pagination. Existing sample profiles are unchanged. The load-more control only appears when there are more than 10 matches. Unit tests include a 58-donor fixture without adding it to saved sample data.
+
+
+## Approved availability and contact behavior
+
+Visibility is the donor’s preference, separate from the automatic 90-day donation pause. Recording a donation preserves that preference. A donor who has left availability enabled returns automatically at the 90-day boundary; a donor who selected a break stays hidden. Existing hidden profiles stay hidden, because the old data does not reliably distinguish a manual break from an old donation-induced hide.
+
+Search cards contain no phone numbers. Opening an available donor profile displays its fictional `DEMO-` contact number. Hidden and paused profiles cannot reveal contact through this view. This is browser-only display logic, not server-side privacy protection; real contact data must not be entered.

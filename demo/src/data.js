@@ -22,8 +22,10 @@ export function donationDateTimestamp(value, now=Date.now()) {
 }
 export const paused = (donor, now=Date.now()) => Boolean(donor?.lastDonationAt && Date.parse(donor.lastDonationAt) + PAUSE_MS > now);
 export const available = (donor, now=Date.now()) => Boolean(donor?.visible && !paused(donor,now));
-export const recordDonation = (donor, now=Date.now()) => ({...donor, visible:false, lastDonationAt:new Date(now).toISOString()});
-export const setAvailability = (donor, visible, now=Date.now()) => ({...donor,visible:Boolean(visible && !paused(donor,now))});
-export const demoPhone = donor => donor.phone || `DEMO-${donor.id.replace(/\D/g,'').padStart(4,'0')}`;
+// Visibility records the donor's choice. A donation pause independently blocks search.
+export const recordDonation = (donor, now=Date.now()) => ({...donor, lastDonationAt:new Date(now).toISOString()});
+export const setAvailability = (donor, visible) => ({...donor,visible:Boolean(visible)});
+export const demoPhone = donor => donor.phone || `DEMO-${donor.id.replace(/\D/g,'').slice(-4).padStart(4,'0')}`;
+export const openedProfilePhone = (donor,now=Date.now()) => available(donor,now)?demoPhone(donor):null;
 export const filterDonors = (donors,town,blood,now=Date.now()) => donors.filter(d => available(d,now) && (!town || (Boolean(resolveTown(town)) && resolveTown(d.town)?.id===resolveTown(town)?.id)) && (!blood || d.blood===blood));
 export const valid = donors => Array.isArray(donors) && donors.length<=100 && new Set(donors.map(d=>d?.id)).size===donors.length && donors.every(d=>d && typeof d.id==='string' && typeof d.alias==='string' && d.alias.trim().length>0 && d.alias.length<=50 && validLocation(d.town,d.region) && groups.includes(d.blood) && typeof d.visible==='boolean' && (d.phone===undefined || /^DEMO-\d{4,8}$/.test(d.phone)) && (d.lastDonationAt===undefined || (typeof d.lastDonationAt==='string' && Number.isFinite(Date.parse(d.lastDonationAt)))));
