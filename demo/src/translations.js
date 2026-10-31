@@ -47,3 +47,5 @@ Object.assign(translations.my, {
  hiddenExplanation:'လိုအပ်သလောက် အနားယူပါ။ ပြန်ကူညီဖို့ အဆင်သင့်ဖြစ်တဲ့အခါ ဖွင့်နိုင်ပါတယ်။',
  recovering:'သွေးလှူပြီး အနားယူနေပါတယ်'
 });
+Object.assign(translations.en,{allDonorsShown:'You have seen all matching donors.'});
+Object.assign(translations.my,{allDonorsShown:'ကိုက်ညီသော အလှူရှင်အားလုံးကို ဖော်ပြပြီးပါပြီ။'});

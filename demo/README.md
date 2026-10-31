@@ -67,3 +67,8 @@ No database, Supabase project or real email sender is connected. Only fictional 
 - Forgot password opens a simulated inbox and reset form. No email is sent and the shared demo password remains unchanged.
 - Reload logs out of the UI simulation but preserves fake email-to-profile mappings and profile edits in this browser. Reset demo restores original profiles and sample accounts.
 - These client-side screens do not provide real ownership protection or authentication. Never enter real emails or passwords.
+
+
+## Search result batches
+
+Search shows 10 matching donors initially, with a visible/total count. Load more adds up to 10 at a time. Changing state, township or blood group resets the displayed batch; Clear filters does too. All data still comes from browser-local storage; this is UI pagination, not server-side pagination. Existing sample profiles are unchanged. The load-more control only appears when there are more than 10 matches. Unit tests include a 58-donor fixture without adding it to saved sample data.
