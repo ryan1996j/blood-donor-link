@@ -49,3 +49,9 @@ The production build is written to `dist`. Nothing is published by these command
 - `vite.config.js`: Vite and Tailwind setup.
 
 Real donor registration, recovery, private contact storage, verification, and security review are future work.
+
+## Location selectors
+
+Choose a state/region first, then select a township from its complete dropdown list. There is no township typing box. Changing state/region clears the township selection. The same source list is used in search, profile creation and editing. Existing demo records are converted to location codes on load.
+
+See [location data provenance](LOCATION_DATA.md) for source version, attribution and public-launch limitations. This local demo uses a MIMU-derived v9.4 snapshot, not the latest release.

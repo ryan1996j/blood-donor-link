@@ -1,0 +1,2080 @@
+{
+  "source": "https://services.arcgis.com/pGfbNJoYypmNq86F/ArcGIS/rest/services/Myanmar_EQ_RNA_data/FeatureServer/0",
+  "version": "MIMU Pcode v9.4 as described by source layer",
+  "retrieved": "2026-10-31",
+  "attribution": "Place Names from GAD. Transliteration by MIMU. Reference only; no accuracy or completeness warranty.",
+  "regions": [
+    {
+      "id": "MMR017",
+      "en": "Ayeyarwady",
+      "my": "ဧရာဝတီတိုင်းဒေသက"
+    },
+    {
+      "id": "MMR007",
+      "en": "Bago (East)",
+      "my": "ပဲခူးတိုင်းဒေသကြ"
+    },
+    {
+      "id": "MMR008",
+      "en": "Bago (West)",
+      "my": "ပဲခူးတိုင်းဒေသကြ"
+    },
+    {
+      "id": "MMR004",
+      "en": "Chin",
+      "my": "ချင်းပြည်နယ်"
+    },
+    {
+      "id": "MMR001",
+      "en": "Kachin",
+      "my": "ကချင်ပြည်နယ်"
+    },
+    {
+      "id": "MMR002",
+      "en": "Kayah",
+      "my": "ကယားပြည်နယ်"
+    },
+    {
+      "id": "MMR003",
+      "en": "Kayin",
+      "my": "ကရင်ပြည်နယ်"
+    },
+    {
+      "id": "MMR009",
+      "en": "Magway",
+      "my": "မကွေးတိုင်းဒေသကြ"
+    },
+    {
+      "id": "MMR010",
+      "en": "Mandalay",
+      "my": "မန္တလေးတိုင်းဒေသ"
+    },
+    {
+      "id": "MMR011",
+      "en": "Mon",
+      "my": "မွန်ပြည်နယ်"
+    },
+    {
+      "id": "MMR018",
+      "en": "Nay Pyi Taw",
+      "my": "နေပြည်တော်"
+    },
+    {
+      "id": "MMR012",
+      "en": "Rakhine",
+      "my": "ရခိုင်ပြည်နယ်"
+    },
+    {
+      "id": "MMR005",
+      "en": "Sagaing",
+      "my": "စစ်ကိုင်းတိုင်းဒ"
+    },
+    {
+      "id": "MMR016",
+      "en": "Shan (East)",
+      "my": "ရှမ်းပြည်နယ် (အရှေ"
+    },
+    {
+      "id": "MMR015",
+      "en": "Shan (North)",
+      "my": "ရှမ်းပြည်နယ် (မြော"
+    },
+    {
+      "id": "MMR014",
+      "en": "Shan (South)",
+      "my": "ရှမ်းပြည်နယ် (တောင"
+    },
+    {
+      "id": "MMR006",
+      "en": "Tanintharyi",
+      "my": "တနင်္သာရီတိုင်းဒ"
+    },
+    {
+      "id": "MMR013",
+      "en": "Yangon",
+      "my": "ရန်ကုန်တိုင်းဒေသ"
+    }
+  ],
+  "townships": [
+    {
+      "id": "MMR013037",
+      "region": "MMR013",
+      "en": "Ahlone",
+      "my": "အလုံ"
+    },
+    {
+      "id": "MMR010006",
+      "region": "MMR010",
+      "en": "Amarapura",
+      "my": "အမရပူရ"
+    },
+    {
+      "id": "MMR012014",
+      "region": "MMR012",
+      "en": "Ann",
+      "my": "အမ်း"
+    },
+    {
+      "id": "MMR009016",
+      "region": "MMR009",
+      "en": "Aunglan",
+      "my": "အောင်လံ"
+    },
+    {
+      "id": "MMR010001",
+      "region": "MMR010",
+      "en": "Aungmyaythazan",
+      "my": "အောင်မြေသာစံ"
+    },
+    {
+      "id": "MMR005014",
+      "region": "MMR005",
+      "en": "Ayadaw",
+      "my": "အရာတော်"
+    },
+    {
+      "id": "MMR007001",
+      "region": "MMR007",
+      "en": "Bago",
+      "my": "ပဲခူး"
+    },
+    {
+      "id": "MMR013044",
+      "region": "MMR013",
+      "en": "Bahan",
+      "my": "ဗဟန်း"
+    },
+    {
+      "id": "MMR005023",
+      "region": "MMR005",
+      "en": "Banmauk",
+      "my": "ဗန်းမောက်"
+    },
+    {
+      "id": "MMR002005",
+      "region": "MMR002",
+      "en": "Bawlake",
+      "my": "ဘောလခဲ"
+    },
+    {
+      "id": "MMR001010",
+      "region": "MMR001",
+      "en": "Bhamo",
+      "my": "ဗန်းမော်"
+    },
+    {
+      "id": "MMR011010",
+      "region": "MMR011",
+      "en": "Bilin",
+      "my": "ဘီးလင်း"
+    },
+    {
+      "id": "MMR017024",
+      "region": "MMR017",
+      "en": "Bogale",
+      "my": "ဘိုကလေး"
+    },
+    {
+      "id": "MMR006010",
+      "region": "MMR006",
+      "en": "Bokpyin",
+      "my": "ဘုတ်ပြင်း"
+    },
+    {
+      "id": "MMR013017",
+      "region": "MMR013",
+      "en": "Botahtaung",
+      "my": "ဗိုလ်တထောင်"
+    },
+    {
+      "id": "MMR005013",
+      "region": "MMR005",
+      "en": "Budalin",
+      "my": "ဘုတလင်"
+    },
+    {
+      "id": "MMR012010",
+      "region": "MMR012",
+      "en": "Buthidaung",
+      "my": "ဘူးသီးတောင်"
+    },
+    {
+      "id": "MMR010002",
+      "region": "MMR010",
+      "en": "Chanayethazan",
+      "my": "ချမ်းအေးသာစံ"
+    },
+    {
+      "id": "MMR010004",
+      "region": "MMR010",
+      "en": "Chanmyathazi",
+      "my": "ချမ်းမြသာစည်"
+    },
+    {
+      "id": "MMR009003",
+      "region": "MMR009",
+      "en": "Chauk",
+      "my": "ချောက်"
+    },
+    {
+      "id": "MMR005015",
+      "region": "MMR005",
+      "en": "Chaung-U",
+      "my": "ချောင်းဦး"
+    },
+    {
+      "id": "MMR011003",
+      "region": "MMR011",
+      "en": "Chaungzon",
+      "my": "ချောင်းဆုံ"
+    },
+    {
+      "id": "MMR001005",
+      "region": "MMR001",
+      "en": "Chipwi",
+      "my": "ချီ​ဖွေ"
+    },
+    {
+      "id": "MMR013032",
+      "region": "MMR013",
+      "en": "Cocokyun",
+      "my": "ကိုကိုးကျွန်း"
+    },
+    {
+      "id": "MMR013043",
+      "region": "MMR013",
+      "en": "Dagon",
+      "my": "ဒဂုံ"
+    },
+    {
+      "id": "MMR013020",
+      "region": "MMR013",
+      "en": "Dagon Myothit (East)",
+      "my": "ဒဂုံမြို့သစ် (အရှေ့ပိုင်း)"
+    },
+    {
+      "id": "MMR013019",
+      "region": "MMR013",
+      "en": "Dagon Myothit (North)",
+      "my": "ဒဂုံမြို့သစ် (မြောက်ပိုင်း)"
+    },
+    {
+      "id": "MMR013021",
+      "region": "MMR013",
+      "en": "Dagon Myothit (Seikkan)",
+      "my": "ဒဂုံမြို့သစ် (ဆိပ်ကမ်း)"
+    },
+    {
+      "id": "MMR013018",
+      "region": "MMR013",
+      "en": "Dagon Myothit (South)",
+      "my": "ဒဂုံမြို့သစ် (တောင်ပိုင်း)"
+    },
+    {
+      "id": "MMR007007",
+      "region": "MMR007",
+      "en": "Daik-U",
+      "my": "ဒိုက်ဦး"
+    },
+    {
+      "id": "MMR013030",
+      "region": "MMR013",
+      "en": "Dala",
+      "my": "ဒလ"
+    },
+    {
+      "id": "MMR017022",
+      "region": "MMR017",
+      "en": "Danubyu",
+      "my": "ဓနုဖြူ"
+    },
+    {
+      "id": "MMR013014",
+      "region": "MMR013",
+      "en": "Dawbon",
+      "my": "ဒေါပုံ"
+    },
+    {
+      "id": "MMR006001",
+      "region": "MMR006",
+      "en": "Dawei",
+      "my": "ထားဝယ်"
+    },
+    {
+      "id": "MMR017026",
+      "region": "MMR017",
+      "en": "Dedaye",
+      "my": "ဒေးဒရဲ"
+    },
+    {
+      "id": "MMR002002",
+      "region": "MMR002",
+      "en": "Demoso",
+      "my": "ဒီးမော့ဆို"
+    },
+    {
+      "id": "MMR018004",
+      "region": "MMR018",
+      "en": "Det Khi Na Thi Ri",
+      "my": "ဒက္ခိဏသီရိ"
+    },
+    {
+      "id": "MMR017015",
+      "region": "MMR017",
+      "en": "Einme",
+      "my": "အိမ်မဲ"
+    },
+    {
+      "id": "MMR004001",
+      "region": "MMR004",
+      "en": "Falam",
+      "my": "ဖလမ်း"
+    },
+    {
+      "id": "MMR009023",
+      "region": "MMR009",
+      "en": "Gangaw",
+      "my": "ဂန့်ဂေါ"
+    },
+    {
+      "id": "MMR012017",
+      "region": "MMR012",
+      "en": "Gwa",
+      "my": "ဂွ"
+    },
+    {
+      "id": "MMR008014",
+      "region": "MMR008",
+      "en": "Gyobingauk",
+      "my": "ကြို့ပင်ကောက်"
+    },
+    {
+      "id": "MMR004002",
+      "region": "MMR004",
+      "en": "Hakha",
+      "my": "ဟားခါး"
+    },
+    {
+      "id": "MMR017008",
+      "region": "MMR017",
+      "en": "Hinthada",
+      "my": "ဟင်္သာတ"
+    },
+    {
+      "id": "MMR005033",
+      "region": "MMR005",
+      "en": "Hkamti",
+      "my": "ခန္တီး"
+    },
+    {
+      "id": "MMR013040",
+      "region": "MMR013",
+      "en": "Hlaing",
+      "my": "လှိုင်"
+    },
+    {
+      "id": "MMR003002",
+      "region": "MMR003",
+      "en": "Hlaingbwe",
+      "my": "လှိုင်းဘွဲ့"
+    },
+    {
+      "id": "MMR013046",
+      "region": "MMR013",
+      "en": "Hlaingtharya (East)",
+      "my": "လှိုင်သာယာ (အရှေ့ပိုင်း)"
+    },
+    {
+      "id": "MMR013047",
+      "region": "MMR013",
+      "en": "Hlaingtharya (West)",
+      "my": "လှိုင်သာယာ (အနောက်ပိုင်း)"
+    },
+    {
+      "id": "MMR013004",
+      "region": "MMR013",
+      "en": "Hlegu",
+      "my": "လှည်းကူး"
+    },
+    {
+      "id": "MMR013003",
+      "region": "MMR013",
+      "en": "Hmawbi",
+      "my": "မှော်ဘီ"
+    },
+    {
+      "id": "MMR005034",
+      "region": "MMR005",
+      "en": "Homalin",
+      "my": "ဟုမ္မလင်း"
+    },
+    {
+      "id": "MMR015021",
+      "region": "MMR015",
+      "en": "Hopang",
+      "my": "ဟိုပန်"
+    },
+    {
+      "id": "MMR014003",
+      "region": "MMR014",
+      "en": "Hopong",
+      "my": "ဟိုပုံး"
+    },
+    {
+      "id": "MMR003001",
+      "region": "MMR003",
+      "en": "Hpa-An",
+      "my": "ဘားအံ"
+    },
+    {
+      "id": "MMR001009",
+      "region": "MMR001",
+      "en": "Hpakant",
+      "my": "ဖားကန့်"
+    },
+    {
+      "id": "MMR003003",
+      "region": "MMR003",
+      "en": "Hpapun",
+      "my": "ဖာပွန်"
+    },
+    {
+      "id": "MMR002006",
+      "region": "MMR002",
+      "en": "Hpasawng",
+      "my": "ဖားဆောင်း"
+    },
+    {
+      "id": "MMR002003",
+      "region": "MMR002",
+      "en": "Hpruso",
+      "my": "ဖရူဆို"
+    },
+    {
+      "id": "MMR015002",
+      "region": "MMR015",
+      "en": "Hseni",
+      "my": "သိန္နီ"
+    },
+    {
+      "id": "MMR014004",
+      "region": "MMR014",
+      "en": "Hsihseng",
+      "my": "ဆီဆိုင်"
+    },
+    {
+      "id": "MMR015014",
+      "region": "MMR015",
+      "en": "Hsipaw",
+      "my": "သီပေါ"
+    },
+    {
+      "id": "MMR007014",
+      "region": "MMR007",
+      "en": "Htantabin",
+      "my": "ထန်းတပင်"
+    },
+    {
+      "id": "MMR013006",
+      "region": "MMR013",
+      "en": "Htantabin",
+      "my": "ထန်းတပင်"
+    },
+    {
+      "id": "MMR005021",
+      "region": "MMR005",
+      "en": "Indaw",
+      "my": "အင်းတော်"
+    },
+    {
+      "id": "MMR017013",
+      "region": "MMR017",
+      "en": "Ingapu",
+      "my": "အင်္ဂပူ"
+    },
+    {
+      "id": "MMR001003",
+      "region": "MMR001",
+      "en": "Injangyang",
+      "my": "အင်ဂျန်းယန်"
+    },
+    {
+      "id": "MMR013001",
+      "region": "MMR013",
+      "en": "Insein",
+      "my": "အင်းစိန်"
+    },
+    {
+      "id": "MMR014005",
+      "region": "MMR014",
+      "en": "Kalaw",
+      "my": "ကလော"
+    },
+    {
+      "id": "MMR005027",
+      "region": "MMR005",
+      "en": "Kale",
+      "my": "ကလေး"
+    },
+    {
+      "id": "MMR005028",
+      "region": "MMR005",
+      "en": "Kalewa",
+      "my": "ကလေးဝ"
+    },
+    {
+      "id": "MMR013041",
+      "region": "MMR013",
+      "en": "Kamaryut",
+      "my": "ကမာရွတ်"
+    },
+    {
+      "id": "MMR009015",
+      "region": "MMR009",
+      "en": "Kamma",
+      "my": "ကံမ"
+    },
+    {
+      "id": "MMR005007",
+      "region": "MMR005",
+      "en": "Kanbalu",
+      "my": "ကန့်ဘလူ"
+    },
+    {
+      "id": "MMR017002",
+      "region": "MMR017",
+      "en": "Kangyidaunt",
+      "my": "ကန်ကြီးထောင့်"
+    },
+    {
+      "id": "MMR005017",
+      "region": "MMR005",
+      "en": "Kani",
+      "my": "ကနီ"
+    },
+    {
+      "id": "MMR004008",
+      "region": "MMR004",
+      "en": "Kanpetlet",
+      "my": "ကန်ပက်လက်"
+    },
+    {
+      "id": "MMR005020",
+      "region": "MMR005",
+      "en": "Katha",
+      "my": "ကသာ"
+    },
+    {
+      "id": "MMR007003",
+      "region": "MMR007",
+      "en": "Kawa",
+      "my": "ကဝ"
+    },
+    {
+      "id": "MMR013028",
+      "region": "MMR013",
+      "en": "Kawhmu",
+      "my": "ကော့မှူး"
+    },
+    {
+      "id": "MMR003006",
+      "region": "MMR003",
+      "en": "Kawkareik",
+      "my": "ကော့ကရိတ်"
+    },
+    {
+      "id": "MMR005024",
+      "region": "MMR005",
+      "en": "Kawlin",
+      "my": "ကောလင်း"
+    },
+    {
+      "id": "MMR006009",
+      "region": "MMR006",
+      "en": "Kawthoung",
+      "my": "ကော့သောင်း"
+    },
+    {
+      "id": "MMR013026",
+      "region": "MMR013",
+      "en": "Kayan",
+      "my": "ခရမ်း"
+    },
+    {
+      "id": "MMR016001",
+      "region": "MMR016",
+      "en": "Kengtung",
+      "my": "ကျိုင်းတုံ"
+    },
+    {
+      "id": "MMR001018",
+      "region": "MMR001",
+      "en": "Khaunglanhpu",
+      "my": "ခေါင်လန်ဖူး"
+    },
+    {
+      "id": "MMR005005",
+      "region": "MMR005",
+      "en": "Khin-U",
+      "my": "ခင်ဦး"
+    },
+    {
+      "id": "MMR015023",
+      "region": "MMR015",
+      "en": "Konkyan",
+      "my": "ကုန်းကြမ်း"
+    },
+    {
+      "id": "MMR013029",
+      "region": "MMR013",
+      "en": "Kungyangon",
+      "my": "ကွမ်းခြံကုန်း"
+    },
+    {
+      "id": "MMR014014",
+      "region": "MMR014",
+      "en": "Kunhing",
+      "my": "ကွန်ဟိန်း"
+    },
+    {
+      "id": "MMR015020",
+      "region": "MMR015",
+      "en": "Kunlong",
+      "my": "ကွမ်းလုံ"
+    },
+    {
+      "id": "MMR015011",
+      "region": "MMR015",
+      "en": "Kutkai",
+      "my": "ကွတ်ခိုင်"
+    },
+    {
+      "id": "MMR017025",
+      "region": "MMR017",
+      "en": "Kyaiklat",
+      "my": "ကျိုက်လတ်"
+    },
+    {
+      "id": "MMR011002",
+      "region": "MMR011",
+      "en": "Kyaikmaraw",
+      "my": "ကျိုက်မရော"
+    },
+    {
+      "id": "MMR011009",
+      "region": "MMR011",
+      "en": "Kyaikto",
+      "my": "ကျိုက်ထို"
+    },
+    {
+      "id": "MMR003007",
+      "region": "MMR003",
+      "en": "Kyainseikgyi",
+      "my": "ကြာအင်းဆိပ်ကြီး"
+    },
+    {
+      "id": "MMR017012",
+      "region": "MMR017",
+      "en": "Kyangin",
+      "my": "ကြံခင်း"
+    },
+    {
+      "id": "MMR007011",
+      "region": "MMR007",
+      "en": "Kyaukkyi",
+      "my": "ကျောက်ကြီး"
+    },
+    {
+      "id": "MMR015012",
+      "region": "MMR015",
+      "en": "Kyaukme",
+      "my": "ကျောက်မဲ"
+    },
+    {
+      "id": "MMR010020",
+      "region": "MMR010",
+      "en": "Kyaukpadaung",
+      "my": "ကျောက်ပန်းတောင်း"
+    },
+    {
+      "id": "MMR012011",
+      "region": "MMR012",
+      "en": "Kyaukpyu",
+      "my": "ကျောက်ဖြူ"
+    },
+    {
+      "id": "MMR010013",
+      "region": "MMR010",
+      "en": "Kyaukse",
+      "my": "ကျောက်ဆည်"
+    },
+    {
+      "id": "MMR013033",
+      "region": "MMR013",
+      "en": "Kyauktada",
+      "my": "ကျောက်တံတား"
+    },
+    {
+      "id": "MMR007006",
+      "region": "MMR007",
+      "en": "Kyauktaga",
+      "my": "ကျောက်တံခါး"
+    },
+    {
+      "id": "MMR013024",
+      "region": "MMR013",
+      "en": "Kyauktan",
+      "my": "ကျောက်တန်း"
+    },
+    {
+      "id": "MMR012004",
+      "region": "MMR012",
+      "en": "Kyauktaw",
+      "my": "ကျောက်တော်"
+    },
+    {
+      "id": "MMR017007",
+      "region": "MMR017",
+      "en": "Kyaunggon",
+      "my": "ကျောင်းကုန်း"
+    },
+    {
+      "id": "MMR013038",
+      "region": "MMR013",
+      "en": "Kyeemyindaing",
+      "my": "ကြည့်မြင်တိုင်"
+    },
+    {
+      "id": "MMR014015",
+      "region": "MMR014",
+      "en": "Kyethi",
+      "my": "ကျေးသီး"
+    },
+    {
+      "id": "MMR017005",
+      "region": "MMR017",
+      "en": "Kyonpyaw",
+      "my": "ကျုံပျော်"
+    },
+    {
+      "id": "MMR005008",
+      "region": "MMR005",
+      "en": "Kyunhla",
+      "my": "ကျွန်းလှ"
+    },
+    {
+      "id": "MMR006006",
+      "region": "MMR006",
+      "en": "Kyunsu",
+      "my": "ကျွန်းစု"
+    },
+    {
+      "id": "MMR017016",
+      "region": "MMR017",
+      "en": "Labutta",
+      "my": "လပွတ္တာ"
+    },
+    {
+      "id": "MMR005036",
+      "region": "MMR005",
+      "en": "Lahe",
+      "my": "လဟယ်"
+    },
+    {
+      "id": "MMR014012",
+      "region": "MMR014",
+      "en": "Laihka",
+      "my": "လဲချား"
+    },
+    {
+      "id": "MMR014018",
+      "region": "MMR014",
+      "en": "Langkho",
+      "my": "လင်းခေး"
+    },
+    {
+      "id": "MMR013035",
+      "region": "MMR013",
+      "en": "Lanmadaw",
+      "my": "လမ်းမတော်"
+    },
+    {
+      "id": "MMR015001",
+      "region": "MMR015",
+      "en": "Lashio",
+      "my": "လားရှိုး"
+    },
+    {
+      "id": "MMR013036",
+      "region": "MMR013",
+      "en": "Latha",
+      "my": "လသာ"
+    },
+    {
+      "id": "MMR015022",
+      "region": "MMR015",
+      "en": "Laukkaing",
+      "my": "လောက်ကိုင်"
+    },
+    {
+      "id": "MMR006002",
+      "region": "MMR006",
+      "en": "Launglon",
+      "my": "လောင်းလုံး"
+    },
+    {
+      "id": "MMR014008",
+      "region": "MMR014",
+      "en": "Lawksawk",
+      "my": "ရပ်စောက်"
+    },
+    {
+      "id": "MMR005035",
+      "region": "MMR005",
+      "en": "Layshi",
+      "my": "လေရှီး"
+    },
+    {
+      "id": "MMR017010",
+      "region": "MMR017",
+      "en": "Lemyethna",
+      "my": "လေးမျက်နှာ"
+    },
+    {
+      "id": "MMR008008",
+      "region": "MMR008",
+      "en": "Letpadan",
+      "my": "လက်ပံတန်း"
+    },
+    {
+      "id": "MMR018007",
+      "region": "MMR018",
+      "en": "Lewe",
+      "my": "လယ်ဝေး"
+    },
+    {
+      "id": "MMR002001",
+      "region": "MMR002",
+      "en": "Loikaw",
+      "my": "လွိုင်ကော်"
+    },
+    {
+      "id": "MMR014011",
+      "region": "MMR014",
+      "en": "Loilen",
+      "my": "လွိုင်လင်"
+    },
+    {
+      "id": "MMR015018",
+      "region": "MMR015",
+      "en": "Mabein",
+      "my": "မဘိမ်း"
+    },
+    {
+      "id": "MMR001016",
+      "region": "MMR001",
+      "en": "Machanbaw",
+      "my": "မချမ်းဘော"
+    },
+    {
+      "id": "MMR010009",
+      "region": "MMR010",
+      "en": "Madaya",
+      "my": "မတ္တရာ"
+    },
+    {
+      "id": "MMR009001",
+      "region": "MMR009",
+      "en": "Magway",
+      "my": "မကွေး"
+    },
+    {
+      "id": "MMR010003",
+      "region": "MMR010",
+      "en": "Mahaaungmyay",
+      "my": "မဟာအောင်မြေ"
+    },
+    {
+      "id": "MMR010029",
+      "region": "MMR010",
+      "en": "Mahlaing",
+      "my": "မလှိုင်"
+    },
+    {
+      "id": "MMR001013",
+      "region": "MMR001",
+      "en": "Mansi",
+      "my": "မံစီ"
+    },
+    {
+      "id": "MMR015019",
+      "region": "MMR015",
+      "en": "Manton",
+      "my": "မန်တုံ"
+    },
+    {
+      "id": "MMR015024",
+      "region": "MMR015",
+      "en": "Matman",
+      "my": "မက်မန်း"
+    },
+    {
+      "id": "MMR004007",
+      "region": "MMR004",
+      "en": "Matupi",
+      "my": "မတူပီ"
+    },
+    {
+      "id": "MMR017019",
+      "region": "MMR017",
+      "en": "Maubin",
+      "my": "မအူပင်"
+    },
+    {
+      "id": "MMR012009",
+      "region": "MMR012",
+      "en": "Maungdaw",
+      "my": "မောင်တော"
+    },
+    {
+      "id": "MMR014020",
+      "region": "MMR014",
+      "en": "Mawkmai",
+      "my": "မောက်မယ်"
+    },
+    {
+      "id": "MMR005031",
+      "region": "MMR005",
+      "en": "Mawlaik",
+      "my": "မော်လိုက်"
+    },
+    {
+      "id": "MMR011001",
+      "region": "MMR011",
+      "en": "Mawlamyine",
+      "my": "မော်လမြိုင်"
+    },
+    {
+      "id": "MMR017018",
+      "region": "MMR017",
+      "en": "Mawlamyinegyun",
+      "my": "မော်လမြိုင်ကျွန်"
+    },
+    {
+      "id": "MMR013042",
+      "region": "MMR013",
+      "en": "Mayangone",
+      "my": "မရမ်းကုန်း"
+    },
+    {
+      "id": "MMR010028",
+      "region": "MMR010",
+      "en": "Meiktila",
+      "my": "မိတ္ထီလာ"
+    },
+    {
+      "id": "MMR002007",
+      "region": "MMR002",
+      "en": "Mese",
+      "my": "မယ်စဲ"
+    },
+    {
+      "id": "MMR009007",
+      "region": "MMR009",
+      "en": "Minbu",
+      "my": "မင်းဘူး"
+    },
+    {
+      "id": "MMR012005",
+      "region": "MMR012",
+      "en": "Minbya",
+      "my": "မင်းပြား"
+    },
+    {
+      "id": "MMR004006",
+      "region": "MMR004",
+      "en": "Mindat",
+      "my": "မင်းတပ်"
+    },
+    {
+      "id": "MMR009014",
+      "region": "MMR009",
+      "en": "Mindon",
+      "my": "မင်းတုန်း"
+    },
+    {
+      "id": "MMR013002",
+      "region": "MMR013",
+      "en": "Mingaladon",
+      "my": "မင်္ဂလာဒုံ"
+    },
+    {
+      "id": "MMR013022",
+      "region": "MMR013",
+      "en": "Mingalartaungnyunt",
+      "my": "မင်္ဂလာတောင်ညွန့်"
+    },
+    {
+      "id": "MMR005029",
+      "region": "MMR005",
+      "en": "Mingin",
+      "my": "မင်းကင်း"
+    },
+    {
+      "id": "MMR008009",
+      "region": "MMR008",
+      "en": "Minhla",
+      "my": "မင်းလှ"
+    },
+    {
+      "id": "MMR009013",
+      "region": "MMR009",
+      "en": "Minhla",
+      "my": "မင်းလှ"
+    },
+    {
+      "id": "MMR001008",
+      "region": "MMR001",
+      "en": "Mogaung",
+      "my": "မိုးကောင်း"
+    },
+    {
+      "id": "MMR010011",
+      "region": "MMR010",
+      "en": "Mogoke",
+      "my": "မိုးကုတ်"
+    },
+    {
+      "id": "MMR001007",
+      "region": "MMR001",
+      "en": "Mohnyin",
+      "my": "မိုးညှင်း"
+    },
+    {
+      "id": "MMR001012",
+      "region": "MMR001",
+      "en": "Momauk",
+      "my": "မိုးမောက်"
+    },
+    {
+      "id": "MMR016010",
+      "region": "MMR016",
+      "en": "Monghpyak",
+      "my": "မိုင်းဖြတ်"
+    },
+    {
+      "id": "MMR016006",
+      "region": "MMR016",
+      "en": "Monghsat",
+      "my": "မိုင်းဆတ်"
+    },
+    {
+      "id": "MMR014017",
+      "region": "MMR014",
+      "en": "Monghsu",
+      "my": "မိုင်းရှူး"
+    },
+    {
+      "id": "MMR014016",
+      "region": "MMR014",
+      "en": "Mongkaing",
+      "my": "မိုင်းကိုင်"
+    },
+    {
+      "id": "MMR016002",
+      "region": "MMR016",
+      "en": "Mongkhet",
+      "my": "မိုင်းခတ်"
+    },
+    {
+      "id": "MMR016005",
+      "region": "MMR016",
+      "en": "Mongla",
+      "my": "မိုင်းလား"
+    },
+    {
+      "id": "MMR015008",
+      "region": "MMR015",
+      "en": "Mongmao",
+      "my": "မိုင်းမော"
+    },
+    {
+      "id": "MMR015017",
+      "region": "MMR015",
+      "en": "Mongmit",
+      "my": "မိုးမိတ်"
+    },
+    {
+      "id": "MMR014019",
+      "region": "MMR014",
+      "en": "Mongnai",
+      "my": "မိုးနဲ"
+    },
+    {
+      "id": "MMR014021",
+      "region": "MMR014",
+      "en": "Mongpan",
+      "my": "မိုင်းပန်"
+    },
+    {
+      "id": "MMR016007",
+      "region": "MMR016",
+      "en": "Mongping",
+      "my": "မိုင်းပျဉ်း"
+    },
+    {
+      "id": "MMR016008",
+      "region": "MMR016",
+      "en": "Mongton",
+      "my": "မိုင်းတုံ"
+    },
+    {
+      "id": "MMR015003",
+      "region": "MMR015",
+      "en": "Mongyai",
+      "my": "မိုင်းရယ်"
+    },
+    {
+      "id": "MMR016003",
+      "region": "MMR016",
+      "en": "Mongyang",
+      "my": "မိုင်းယန်း"
+    },
+    {
+      "id": "MMR016011",
+      "region": "MMR016",
+      "en": "Mongyawng",
+      "my": "မိုင်းယောင်း"
+    },
+    {
+      "id": "MMR008013",
+      "region": "MMR008",
+      "en": "Monyo",
+      "my": "မိုးညို"
+    },
+    {
+      "id": "MMR005012",
+      "region": "MMR005",
+      "en": "Monywa",
+      "my": "မုံရွာ"
+    },
+    {
+      "id": "MMR012003",
+      "region": "MMR012",
+      "en": "Mrauk-U",
+      "my": "မြောက်ဦး"
+    },
+    {
+      "id": "MMR011005",
+      "region": "MMR011",
+      "en": "Mudon",
+      "my": "မုဒုံ"
+    },
+    {
+      "id": "MMR012012",
+      "region": "MMR012",
+      "en": "Munaung",
+      "my": "မာန်အောင်"
+    },
+    {
+      "id": "MMR015009",
+      "region": "MMR015",
+      "en": "Muse",
+      "my": "မူဆယ်"
+    },
+    {
+      "id": "MMR009020",
+      "region": "MMR009",
+      "en": "Myaing",
+      "my": "မြိုင်"
+    },
+    {
+      "id": "MMR017011",
+      "region": "MMR017",
+      "en": "Myanaung",
+      "my": "မြန်အောင်"
+    },
+    {
+      "id": "MMR005003",
+      "region": "MMR005",
+      "en": "Myaung",
+      "my": "မြောင်"
+    },
+    {
+      "id": "MMR017014",
+      "region": "MMR017",
+      "en": "Myaungmya",
+      "my": "မြောင်းမြ"
+    },
+    {
+      "id": "MMR003005",
+      "region": "MMR003",
+      "en": "Myawaddy",
+      "my": "မြဝတီ"
+    },
+    {
+      "id": "MMR012006",
+      "region": "MMR012",
+      "en": "Myebon",
+      "my": "မြေပုံ"
+    },
+    {
+      "id": "MMR006005",
+      "region": "MMR006",
+      "en": "Myeik",
+      "my": "မြိတ်"
+    },
+    {
+      "id": "MMR010017",
+      "region": "MMR010",
+      "en": "Myingyan",
+      "my": "မြင်းခြံ"
+    },
+    {
+      "id": "MMR005002",
+      "region": "MMR005",
+      "en": "Myinmu",
+      "my": "မြင်းမူ"
+    },
+    {
+      "id": "MMR001001",
+      "region": "MMR001",
+      "en": "Myitkyina",
+      "my": "မြစ်ကြီးနား"
+    },
+    {
+      "id": "MMR010015",
+      "region": "MMR010",
+      "en": "Myittha",
+      "my": "မြစ်သား"
+    },
+    {
+      "id": "MMR009005",
+      "region": "MMR009",
+      "en": "Myothit",
+      "my": "မြို့သစ်"
+    },
+    {
+      "id": "MMR015010",
+      "region": "MMR015",
+      "en": "Namhkan",
+      "my": "နမ့်ခမ်း"
+    },
+    {
+      "id": "MMR015016",
+      "region": "MMR015",
+      "en": "Namhsan",
+      "my": "နမ့်ဆန်"
+    },
+    {
+      "id": "MMR015015",
+      "region": "MMR015",
+      "en": "Namtu",
+      "my": "နမ္မတူ"
+    },
+    {
+      "id": "MMR014013",
+      "region": "MMR014",
+      "en": "Nansang",
+      "my": "နမ့်စန်"
+    },
+    {
+      "id": "MMR005037",
+      "region": "MMR005",
+      "en": "Nanyun",
+      "my": "နန်းယွန်း"
+    },
+    {
+      "id": "MMR015006",
+      "region": "MMR015",
+      "en": "Narphan",
+      "my": "နားဖန်း"
+    },
+    {
+      "id": "MMR009006",
+      "region": "MMR009",
+      "en": "Natmauk",
+      "my": "နတ်မောက်"
+    },
+    {
+      "id": "MMR010019",
+      "region": "MMR010",
+      "en": "Natogyi",
+      "my": "နွားထိုးကြီး"
+    },
+    {
+      "id": "MMR008012",
+      "region": "MMR008",
+      "en": "Nattalin",
+      "my": "နတ်တလင်း"
+    },
+    {
+      "id": "MMR015013",
+      "region": "MMR015",
+      "en": "Nawnghkio",
+      "my": "နောင်ချို"
+    },
+    {
+      "id": "MMR001017",
+      "region": "MMR001",
+      "en": "Nawngmun",
+      "my": "နောင်မွန်း"
+    },
+    {
+      "id": "MMR009009",
+      "region": "MMR009",
+      "en": "Ngape",
+      "my": "ငဖဲ"
+    },
+    {
+      "id": "MMR017004",
+      "region": "MMR017",
+      "en": "Ngapudaw",
+      "my": "ငပုတော"
+    },
+    {
+      "id": "MMR010021",
+      "region": "MMR010",
+      "en": "Ngazun",
+      "my": "ငါန်းဇွန်"
+    },
+    {
+      "id": "MMR013012",
+      "region": "MMR013",
+      "en": "North Okkalapa",
+      "my": "မြောက်ဥက္ကလာပ"
+    },
+    {
+      "id": "MMR010022",
+      "region": "MMR010",
+      "en": "Nyaung-U",
+      "my": "ညောင်ဦး"
+    },
+    {
+      "id": "MMR017021",
+      "region": "MMR017",
+      "en": "Nyaungdon",
+      "my": "ညောင်တုန်း"
+    },
+    {
+      "id": "MMR007005",
+      "region": "MMR007",
+      "en": "Nyaunglebin",
+      "my": "ညောင်လေးပင်"
+    },
+    {
+      "id": "MMR014002",
+      "region": "MMR014",
+      "en": "Nyaungshwe",
+      "my": "ညောင်ရွှေ"
+    },
+    {
+      "id": "MMR018008",
+      "region": "MMR018",
+      "en": "Oke Ta Ra Thi Ri",
+      "my": "ဥတ္တရသီရိ"
+    },
+    {
+      "id": "MMR008010",
+      "region": "MMR008",
+      "en": "Okpho",
+      "my": "အုတ်ဖို"
+    },
+    {
+      "id": "MMR007013",
+      "region": "MMR007",
+      "en": "Oktwin",
+      "my": "အုတ်တွင်း"
+    },
+    {
+      "id": "MMR013034",
+      "region": "MMR013",
+      "en": "Pabedan",
+      "my": "ပန်းဘဲတန်း"
+    },
+    {
+      "id": "MMR008003",
+      "region": "MMR008",
+      "en": "Padaung",
+      "my": "ပန်းတောင်း"
+    },
+    {
+      "id": "MMR009018",
+      "region": "MMR009",
+      "en": "Pakokku",
+      "my": "ပခုက္ကူ"
+    },
+    {
+      "id": "MMR006007",
+      "region": "MMR006",
+      "en": "Palaw",
+      "my": "ပုလော"
+    },
+    {
+      "id": "MMR005019",
+      "region": "MMR005",
+      "en": "Pale",
+      "my": "ပုလဲ"
+    },
+    {
+      "id": "MMR004009",
+      "region": "MMR004",
+      "en": "Paletwa",
+      "my": "ပလက်ဝ"
+    },
+    {
+      "id": "MMR015005",
+      "region": "MMR015",
+      "en": "Pangsang",
+      "my": "ပန်ဆန်း"
+    },
+    {
+      "id": "MMR015007",
+      "region": "MMR015",
+      "en": "Pangwaun",
+      "my": "ပန်ဝိုင်"
+    },
+    {
+      "id": "MMR017020",
+      "region": "MMR017",
+      "en": "Pantanaw",
+      "my": "ပန်းတနော်"
+    },
+    {
+      "id": "MMR017001",
+      "region": "MMR017",
+      "en": "Pathein",
+      "my": "ပုသိမ်"
+    },
+    {
+      "id": "MMR010007",
+      "region": "MMR010",
+      "en": "Patheingyi",
+      "my": "ပုသိမ်ကြီး"
+    },
+    {
+      "id": "MMR009021",
+      "region": "MMR009",
+      "en": "Pauk",
+      "my": "ပေါက်"
+    },
+    {
+      "id": "MMR008002",
+      "region": "MMR008",
+      "en": "Paukkhaung",
+      "my": "ပေါက်ခေါင်း"
+    },
+    {
+      "id": "MMR012007",
+      "region": "MMR012",
+      "en": "Pauktaw",
+      "my": "ပေါက်တော"
+    },
+    {
+      "id": "MMR011008",
+      "region": "MMR011",
+      "en": "Paung",
+      "my": "ပေါင်"
+    },
+    {
+      "id": "MMR005032",
+      "region": "MMR005",
+      "en": "Paungbyin",
+      "my": "ဖောင်းပြင်"
+    },
+    {
+      "id": "MMR008004",
+      "region": "MMR008",
+      "en": "Paungde",
+      "my": "ပေါင်းတည်"
+    },
+    {
+      "id": "MMR013016",
+      "region": "MMR013",
+      "en": "Pazundaung",
+      "my": "ပုဇွန်တောင်"
+    },
+    {
+      "id": "MMR014010",
+      "region": "MMR014",
+      "en": "Pekon",
+      "my": "ဖယ်ခုံ"
+    },
+    {
+      "id": "MMR007012",
+      "region": "MMR007",
+      "en": "Phyu",
+      "my": "ဖြူး"
+    },
+    {
+      "id": "MMR014006",
+      "region": "MMR014",
+      "en": "Pindaya",
+      "my": "ပင်းတယ"
+    },
+    {
+      "id": "MMR014009",
+      "region": "MMR014",
+      "en": "Pinlaung",
+      "my": "ပင်လောင်း"
+    },
+    {
+      "id": "MMR005026",
+      "region": "MMR005",
+      "en": "Pinlebu",
+      "my": "ပင်လည်ဘူး"
+    },
+    {
+      "id": "MMR018005",
+      "region": "MMR018",
+      "en": "Poke Ba Thi Ri",
+      "my": "ပုဗ္ဗသီရိ"
+    },
+    {
+      "id": "MMR012002",
+      "region": "MMR012",
+      "en": "Ponnagyun",
+      "my": "ပုဏ္ဏားကျွန်း"
+    },
+    {
+      "id": "MMR001014",
+      "region": "MMR001",
+      "en": "Puta-O",
+      "my": "ပူတာအို"
+    },
+    {
+      "id": "MMR009008",
+      "region": "MMR009",
+      "en": "Pwintbyu",
+      "my": "ပွင့်ဖြူ"
+    },
+    {
+      "id": "MMR017023",
+      "region": "MMR017",
+      "en": "Pyapon",
+      "my": "ဖျာပုံ"
+    },
+    {
+      "id": "MMR010024",
+      "region": "MMR010",
+      "en": "Pyawbwe",
+      "my": "ပျော်ဘွယ်"
+    },
+    {
+      "id": "MMR008001",
+      "region": "MMR008",
+      "en": "Pyay",
+      "my": "ပြည်"
+    },
+    {
+      "id": "MMR010005",
+      "region": "MMR010",
+      "en": "Pyigyitagon",
+      "my": "ပြည်ကြီးတံခွန်"
+    },
+    {
+      "id": "MMR018006",
+      "region": "MMR018",
+      "en": "Pyinmana",
+      "my": "ပျဉ်းမနား"
+    },
+    {
+      "id": "MMR010008",
+      "region": "MMR010",
+      "en": "Pyinoolwin",
+      "my": "ပြင်ဦးလွင်"
+    },
+    {
+      "id": "MMR012013",
+      "region": "MMR012",
+      "en": "Ramree",
+      "my": "ရမ်းဗြဲ"
+    },
+    {
+      "id": "MMR012008",
+      "region": "MMR012",
+      "en": "Rathedaung",
+      "my": "ရသေ့တောင်"
+    },
+    {
+      "id": "MMR005001",
+      "region": "MMR005",
+      "en": "Sagaing",
+      "my": "စစ်ကိုင်း"
+    },
+    {
+      "id": "MMR009010",
+      "region": "MMR009",
+      "en": "Salin",
+      "my": "စလင်း"
+    },
+    {
+      "id": "MMR005018",
+      "region": "MMR005",
+      "en": "Salingyi",
+      "my": "ဆားလင်းကြီး"
+    },
+    {
+      "id": "MMR013039",
+      "region": "MMR013",
+      "en": "Sanchaung",
+      "my": "စမ်းချောင်း"
+    },
+    {
+      "id": "MMR009025",
+      "region": "MMR009",
+      "en": "Saw",
+      "my": "ဆော"
+    },
+    {
+      "id": "MMR013031",
+      "region": "MMR013",
+      "en": "Seikgyikanaungto",
+      "my": "ဆိပ်ကြီးခနောင်တို"
+    },
+    {
+      "id": "MMR009022",
+      "region": "MMR009",
+      "en": "Seikphyu",
+      "my": "ဆိပ်ဖြူ"
+    },
+    {
+      "id": "MMR002004",
+      "region": "MMR002",
+      "en": "Shadaw",
+      "my": "ရှားတော"
+    },
+    {
+      "id": "MMR005004",
+      "region": "MMR005",
+      "en": "Shwebo",
+      "my": "ရွှေဘို"
+    },
+    {
+      "id": "MMR008006",
+      "region": "MMR008",
+      "en": "Shwedaung",
+      "my": "ရွှေတောင်"
+    },
+    {
+      "id": "MMR001011",
+      "region": "MMR001",
+      "en": "Shwegu",
+      "my": "ရွှေကူ"
+    },
+    {
+      "id": "MMR007008",
+      "region": "MMR007",
+      "en": "Shwegyin",
+      "my": "ရွှေကျင်"
+    },
+    {
+      "id": "MMR013007",
+      "region": "MMR013",
+      "en": "Shwepyithar",
+      "my": "ရွှေပြည်သာ"
+    },
+    {
+      "id": "MMR009011",
+      "region": "MMR009",
+      "en": "Sidoktaya",
+      "my": "စေတုတ္ထရာ"
+    },
+    {
+      "id": "MMR009017",
+      "region": "MMR009",
+      "en": "Sinbaungwe",
+      "my": "ဆင်ပေါင်ဝဲ"
+    },
+    {
+      "id": "MMR010010",
+      "region": "MMR010",
+      "en": "Singu",
+      "my": "စဉ့်ကူး"
+    },
+    {
+      "id": "MMR010014",
+      "region": "MMR010",
+      "en": "Sintgaing",
+      "my": "စဉ့်ကိုင်"
+    },
+    {
+      "id": "MMR012001",
+      "region": "MMR012",
+      "en": "Sittwe",
+      "my": "စစ်တွေ"
+    },
+    {
+      "id": "MMR013011",
+      "region": "MMR013",
+      "en": "South Okkalapa",
+      "my": "တောင်ဥက္ကလာပ"
+    },
+    {
+      "id": "MMR001015",
+      "region": "MMR001",
+      "en": "Sumprabum",
+      "my": "ဆွမ်ပရာဘွမ်"
+    },
+    {
+      "id": "MMR005010",
+      "region": "MMR005",
+      "en": "Tabayin",
+      "my": "ဒီပဲယင်း"
+    },
+    {
+      "id": "MMR016009",
+      "region": "MMR016",
+      "en": "Tachileik",
+      "my": "တာချီလိတ်"
+    },
+    {
+      "id": "MMR010016",
+      "region": "MMR010",
+      "en": "Tada-U",
+      "my": "တံတားဦး"
+    },
+    {
+      "id": "MMR013005",
+      "region": "MMR013",
+      "en": "Taikkyi",
+      "my": "တိုက်ကြီး"
+    },
+    {
+      "id": "MMR005030",
+      "region": "MMR005",
+      "en": "Tamu",
+      "my": "တမူး"
+    },
+    {
+      "id": "MMR013015",
+      "region": "MMR013",
+      "en": "Tamwe",
+      "my": "တာမွေ"
+    },
+    {
+      "id": "MMR001004",
+      "region": "MMR001",
+      "en": "Tanai",
+      "my": "တနိုင်း"
+    },
+    {
+      "id": "MMR015004",
+      "region": "MMR015",
+      "en": "Tangyan",
+      "my": "တန့်ယန်း"
+    },
+    {
+      "id": "MMR006008",
+      "region": "MMR006",
+      "en": "Tanintharyi",
+      "my": "တနင်္သာရီ"
+    },
+    {
+      "id": "MMR018003",
+      "region": "MMR018",
+      "en": "Tatkon",
+      "my": "တပ်ကုန်း"
+    },
+    {
+      "id": "MMR009004",
+      "region": "MMR009",
+      "en": "Taungdwingyi",
+      "my": "တောင်တွင်းကြီး"
+    },
+    {
+      "id": "MMR014001",
+      "region": "MMR014",
+      "en": "Taunggyi",
+      "my": "တောင်ကြီး"
+    },
+    {
+      "id": "MMR007009",
+      "region": "MMR007",
+      "en": "Taungoo",
+      "my": "တောင်ငူ"
+    },
+    {
+      "id": "MMR010018",
+      "region": "MMR010",
+      "en": "Taungtha",
+      "my": "တောင်သာ"
+    },
+    {
+      "id": "MMR005011",
+      "region": "MMR005",
+      "en": "Taze",
+      "my": "တန့်ဆည်"
+    },
+    {
+      "id": "MMR004004",
+      "region": "MMR004",
+      "en": "Tedim",
+      "my": "တီးတိန်"
+    },
+    {
+      "id": "MMR017003",
+      "region": "MMR017",
+      "en": "Thabaung",
+      "my": "သာပေါင်း"
+    },
+    {
+      "id": "MMR010012",
+      "region": "MMR010",
+      "en": "Thabeikkyin",
+      "my": "သပိတ်ကျင်း"
+    },
+    {
+      "id": "MMR013013",
+      "region": "MMR013",
+      "en": "Thaketa",
+      "my": "သာကေတ"
+    },
+    {
+      "id": "MMR007002",
+      "region": "MMR007",
+      "en": "Thanatpin",
+      "my": "သနပ်ပင်"
+    },
+    {
+      "id": "MMR011004",
+      "region": "MMR011",
+      "en": "Thanbyuzayat",
+      "my": "သံဖြူဇရပ်"
+    },
+    {
+      "id": "MMR003004",
+      "region": "MMR003",
+      "en": "Thandaunggyi",
+      "my": "သံတောင်ကြီး"
+    },
+    {
+      "id": "MMR012015",
+      "region": "MMR012",
+      "en": "Thandwe",
+      "my": "သံတွဲ"
+    },
+    {
+      "id": "MMR013023",
+      "region": "MMR013",
+      "en": "Thanlyin",
+      "my": "သန်လျင်"
+    },
+    {
+      "id": "MMR004003",
+      "region": "MMR004",
+      "en": "Thantlang",
+      "my": "ထန်တလန်"
+    },
+    {
+      "id": "MMR011007",
+      "region": "MMR011",
+      "en": "Thaton",
+      "my": "သထုံ"
+    },
+    {
+      "id": "MMR008007",
+      "region": "MMR008",
+      "en": "Thayarwady",
+      "my": "သာယာဝတီ"
+    },
+    {
+      "id": "MMR009012",
+      "region": "MMR009",
+      "en": "Thayet",
+      "my": "သရက်"
+    },
+    {
+      "id": "MMR006003",
+      "region": "MMR006",
+      "en": "Thayetchaung",
+      "my": "သရက်ချောင်း"
+    },
+    {
+      "id": "MMR010030",
+      "region": "MMR010",
+      "en": "Thazi",
+      "my": "သာစည်"
+    },
+    {
+      "id": "MMR008005",
+      "region": "MMR008",
+      "en": "Thegon",
+      "my": "သဲကုန်း"
+    },
+    {
+      "id": "MMR013009",
+      "region": "MMR013",
+      "en": "Thingangyun",
+      "my": "သင်္ဃန်းကျွန်း"
+    },
+    {
+      "id": "MMR013025",
+      "region": "MMR013",
+      "en": "Thongwa",
+      "my": "သုံးခွ"
+    },
+    {
+      "id": "MMR005022",
+      "region": "MMR005",
+      "en": "Tigyaing",
+      "my": "ထီးချိုင့်"
+    },
+    {
+      "id": "MMR009024",
+      "region": "MMR009",
+      "en": "Tilin",
+      "my": "ထီးလင်း"
+    },
+    {
+      "id": "MMR004005",
+      "region": "MMR004",
+      "en": "Tonzang",
+      "my": "တွန်းဇန်"
+    },
+    {
+      "id": "MMR012016",
+      "region": "MMR012",
+      "en": "Toungup",
+      "my": "တောင်ကုတ်"
+    },
+    {
+      "id": "MMR001006",
+      "region": "MMR001",
+      "en": "Tsawlaw",
+      "my": "ဆော့လော်"
+    },
+    {
+      "id": "MMR013027",
+      "region": "MMR013",
+      "en": "Twantay",
+      "my": "တွံတေး"
+    },
+    {
+      "id": "MMR001002",
+      "region": "MMR001",
+      "en": "Waingmaw",
+      "my": "ဝိုင်းမော်"
+    },
+    {
+      "id": "MMR017017",
+      "region": "MMR017",
+      "en": "Wakema",
+      "my": "ဝါးခယ်မ"
+    },
+    {
+      "id": "MMR007004",
+      "region": "MMR007",
+      "en": "Waw",
+      "my": "ဝေါ"
+    },
+    {
+      "id": "MMR005006",
+      "region": "MMR005",
+      "en": "Wetlet",
+      "my": "ဝက်လက်"
+    },
+    {
+      "id": "MMR010031",
+      "region": "MMR010",
+      "en": "Wundwin",
+      "my": "ဝမ်းတွင်း"
+    },
+    {
+      "id": "MMR005025",
+      "region": "MMR005",
+      "en": "Wuntho",
+      "my": "ဝန်းသို"
+    },
+    {
+      "id": "MMR010023",
+      "region": "MMR010",
+      "en": "Yamethin",
+      "my": "ရမည်းသင်း"
+    },
+    {
+      "id": "MMR013010",
+      "region": "MMR013",
+      "en": "Yankin",
+      "my": "ရန်ကင်း"
+    },
+    {
+      "id": "MMR011006",
+      "region": "MMR011",
+      "en": "Ye",
+      "my": "ရေး"
+    },
+    {
+      "id": "MMR005009",
+      "region": "MMR005",
+      "en": "Ye-U",
+      "my": "ရေဦး"
+    },
+    {
+      "id": "MMR006004",
+      "region": "MMR006",
+      "en": "Yebyu",
+      "my": "ရေဖြူ"
+    },
+    {
+      "id": "MMR007010",
+      "region": "MMR007",
+      "en": "Yedashe",
+      "my": "ရေတာရှည်"
+    },
+    {
+      "id": "MMR017006",
+      "region": "MMR017",
+      "en": "Yegyi",
+      "my": "ရေကြည်"
+    },
+    {
+      "id": "MMR009002",
+      "region": "MMR009",
+      "en": "Yenangyaung",
+      "my": "ရေနံချောင်း"
+    },
+    {
+      "id": "MMR009019",
+      "region": "MMR009",
+      "en": "Yesagyo",
+      "my": "ရေစကြို"
+    },
+    {
+      "id": "MMR005016",
+      "region": "MMR005",
+      "en": "Yinmarbin",
+      "my": "ယင်းမာပင်"
+    },
+    {
+      "id": "MMR014007",
+      "region": "MMR014",
+      "en": "Ywangan",
+      "my": "ရွာငံ"
+    },
+    {
+      "id": "MMR018002",
+      "region": "MMR018",
+      "en": "Za Bu Thi Ri",
+      "my": "ဇမ္ဗူသီရိ"
+    },
+    {
+      "id": "MMR017009",
+      "region": "MMR017",
+      "en": "Zalun",
+      "my": "ဇလွန်"
+    },
+    {
+      "id": "MMR018001",
+      "region": "MMR018",
+      "en": "Zay Yar Thi Ri",
+      "my": "ဇေယျာသီရိ"
+    },
+    {
+      "id": "MMR008011",
+      "region": "MMR008",
+      "en": "Zigon",
+      "my": "ဇီးကုန်း"
+    }
+  ]
+}
