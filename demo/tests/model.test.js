@@ -1,6 +1,17 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { seed,filterDonors,valid,recordDonation,paused,PAUSE_MS,setAvailability } from '../src/data.js';
+import { seed,filterDonors,valid,recordDonation,paused,PAUSE_MS,setAvailability,donationDateTimestamp } from '../src/data.js';
+test('reported donation dates validate and exclude profiles until day 90',()=>{
+ const now=Date.parse('2026-10-31T05:00:00Z');
+ const at=donationDateTimestamp('2026-10-01',now);
+ const donor={...seed()[0],lastDonationAt:at};
+ assert.equal(filterDonors([donor],'','',now).length,0);
+ assert.equal(filterDonors([donor],'','',Date.parse(at)+PAUSE_MS-1).length,0);
+ assert.equal(filterDonors([donor],'','',Date.parse(at)+PAUSE_MS).length,1);
+ assert.throws(()=>donationDateTimestamp('2026-11-01',now));
+ assert.throws(()=>donationDateTimestamp('2026-02-30',now));
+ assert.throws(()=>donationDateTimestamp('',now));
+});
 test('only visible donors match exact township and blood group',()=>{
  const donors=seed();assert.equal(filterDonors(donors,'','').length,7);
  assert.deepEqual(filterDonors(donors,'Insein','O+').map(d=>d.id),['demo-01']);

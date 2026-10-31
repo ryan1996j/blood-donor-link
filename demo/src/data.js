@@ -12,6 +12,13 @@ export const seed = () => [
  {id:'demo-08',alias:'Quiet Sunrise',town:'Hlaing',blood:'AB-',visible:false}
 ];
 export const PAUSE_MS = 90 * 24 * 60 * 60 * 1000;
+export const todayDate = (now=Date.now()) => new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Bangkok',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now));
+export function donationDateTimestamp(value, now=Date.now()) {
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new Error('invalidDate');
+ const stamp=Date.parse(`${value}T00:00:00+07:00`);
+ if(!Number.isFinite(stamp)||todayDate(stamp)!==value||value>todayDate(now)) throw new Error('invalidDate');
+ return new Date(stamp).toISOString();
+}
 export const paused = (donor, now=Date.now()) => Boolean(donor?.lastDonationAt && Date.parse(donor.lastDonationAt) + PAUSE_MS > now);
 export const available = (donor, now=Date.now()) => Boolean(donor?.visible && !paused(donor,now));
 export const recordDonation = (donor, now=Date.now()) => ({...donor, visible:false, lastDonationAt:new Date(now).toISOString()});
