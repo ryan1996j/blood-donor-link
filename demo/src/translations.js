@@ -29,3 +29,21 @@ Object.assign(translations.en,{regionFirst:'Select a state / region first to cho
 Object.assign(translations.my,{regionFirst:'မြို့နယ်ရွေးရန် တိုင်းဒေသကြီး / ပြည်နယ်ကို အရင်ရွေးပါ။',chooseBlood:'သွေးအုပ်စု ရွေးပါ',bloodRequired:'သင့်သွေးအုပ်စုကို ရွေးပေးပါ။',expandTownships:'ဤတိုင်း / ပြည်နယ်ရှိ မြို့နယ်အားလုံး ကြည့်မယ်',pauseTitle:'သင့် profile ကို ရှာဖွေမှုမှ ယာယီဖျောက်ထားပါသည်',pauseAccountSafe:'သင့်အကောင့်နှင့် အချက်အလက်များ မပျောက်ပါ။ နောက်ဆုံးသွေးလှူရက်မှ ရက် ၉၀ မပြည့်သေးသောကြောင့် အောက်ပါရက်အထိ ရှာဖွေမှုတွင် မပေါ်ပါ။'});
 Object.assign(translations.en,{monthLabel:'Month',dayLabel:'Day',yearLabel:'Year',dateHelp:'Select the month, day and year of your last donation.'});
 Object.assign(translations.my,{monthLabel:'လ',dayLabel:'ရက်',yearLabel:'နှစ်',dateHelp:'နောက်ဆုံး သွေးလှူခဲ့သော လ၊ ရက်နှင့် နှစ်ကို ရွေးပါ။'});
+Object.assign(translations.en, {
+ visibilityTitle:'Take a break',
+ visibilityHelp:'Not ready to donate? Take a break and come back when you’re ready.',
+ shown:'Ready to donate',
+ hidden:'Taking a break',
+ searchVisibility:'Available to donate',
+ hiddenExplanation:'Take the time you need. Turn this on when you’re ready to help again.',
+ recovering:'Resting after donation'
+});
+Object.assign(translations.my, {
+ visibilityTitle:'ခဏ အနားယူမယ်',
+ visibilityHelp:'သွေးလှူဖို့ အဆင်မပြေသေးပါက အနားယူပါ။ အဆင်သင့်ဖြစ်တဲ့အခါ ပြန်လာနိုင်ပါတယ်။',
+ shown:'သွေးလှူရန် အဆင်သင့်ပါ',
+ hidden:'ခဏ အနားယူနေပါတယ်',
+ searchVisibility:'သွေးလှူရန် အဆင်သင့်ရှိသည်',
+ hiddenExplanation:'လိုအပ်သလောက် အနားယူပါ။ ပြန်ကူညီဖို့ အဆင်သင့်ဖြစ်တဲ့အခါ ဖွင့်နိုင်ပါတယ်။',
+ recovering:'သွေးလှူပြီး အနားယူနေပါတယ်'
+});

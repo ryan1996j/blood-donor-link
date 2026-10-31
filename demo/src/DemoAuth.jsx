@@ -1,0 +1,28 @@
+import React,{useState} from 'react';
+import {DEMO_PASSWORD,isDemoEmail} from './demoAccounts.js';
+
+export default function DemoAuth({lang,initialMode='login',accounts,onRegister,onVerify,onLogin}){
+ const [mode,setMode]=useState(initialMode),[email,setEmail]=useState(''),[password,setPassword]=useState(''),[confirm,setConfirm]=useState(''),[error,setError]=useState(''),[message,setMessage]=useState('');
+ const text=(en,my)=>lang==='my'?my:en;
+ const title=mode==='signup'?text('Create a demo account','စမ်းသပ်အကောင့် ဖွင့်မယ်'):mode==='verify'?text('Verify your demo email','စမ်းသပ် အီးမေးလ် အတည်ပြုမယ်'):mode==='forgot'?text('Forgot password','စကားဝှက် မေ့နေသလား'):mode==='reset'?text('Reset demo password','စမ်းသပ် စကားဝှက် ပြန်သတ်မှတ်မယ်'):mode==='sent'?text('Check your demo inbox','စမ်းသပ် inbox ကို စစ်ပါ'):text('Log in to your profile','ကိုယ့် profile သို့ ဝင်မယ်');
+ const change=next=>{setMode(next);setError('');setMessage('');setPassword('');setConfirm('');};
+ const submit=e=>{
+  e.preventDefault();setError('');setMessage('');const address=email.trim().toLowerCase();
+  if(!isDemoEmail(address)){setError(text('Use a fictional .test email, such as donor1@example.test.','donor1@example.test ကဲ့သို့ .test အီးမေးလ်အတု သုံးပါ။'));return;}
+  if(mode==='forgot'){setMode('sent');return;}
+  if(password!==DEMO_PASSWORD){setError(text(`This demo only accepts ${DEMO_PASSWORD}. Do not use a real password.`,`ဤ demo တွင် ${DEMO_PASSWORD} ကိုသာ သုံးပါ။ စကားဝှက်အစစ် မထည့်ပါနှင့်။`));return;}
+  if((mode==='signup'||mode==='reset')&&password!==confirm){setError(text('Passwords do not match.','စကားဝှက်နှစ်ခု မတူပါ။'));return;}
+  if(mode==='reset'){change('login');setMessage(text('Reset simulation complete. The shared demo password remains demo-only-123.','ပြန်သတ်မှတ်ခြင်း စမ်းသပ်ပြီးပါပြီ။ Demo စကားဝှက်မှာ demo-only-123 အတိုင်း ဖြစ်သည်။'));return;}
+  const account=accounts.find(a=>a.email===address);
+  if(mode==='signup'){
+   if(account){setError(text('This demo email already exists. Log in instead.','ဤစမ်းသပ်အီးမေးလ် ရှိပြီးသားပါ။ Login ဝင်ပါ။'));return;}
+   onRegister({id:`demo-${crypto.randomUUID()}`,email:address,verified:false});setMode('verify');setPassword('');setConfirm('');return;
+  }
+  if(!account){setError(text('Demo account not found. Create a demo account first.','စမ်းသပ်အကောင့် မတွေ့ပါ။ အရင်ဖန်တီးပါ။'));return;}
+  if(!account.verified){setMode('verify');setPassword('');return;}
+  onLogin(account);
+ };
+ return <section className="dashboard-heading"><h1>{title}</h1><p className="intro">{text('UI simulation only. No emails are sent, no password is saved, and this does not protect real accounts.','UI စမ်းသပ်မှုသာဖြစ်သည်။ အီးမေးလ် မပို့ပါ၊ စကားဝှက် မသိမ်းပါ။ အကောင့်အစစ်ကို ကာကွယ်သော login မဟုတ်ပါ။')}</p><section className="dashboard-panel max-w-xl">
+ {mode==='verify'?<><div className="auth-demo-icon" aria-hidden="true">✉</div><h2>{email}</h2><p className="muted">{text('Pretend you opened a verification email. Click below to simulate its verification link.','အတည်ပြုအီးမေးလ်ကို ဖွင့်ထားသကဲ့သို့ အောက်ပါခလုတ်ဖြင့် link နှိပ်ခြင်းကို စမ်းပါ။')}</p><button className="primary full" onClick={()=>{onVerify(email.trim().toLowerCase());change('login');setMessage(text('Demo email verified. Log in to complete your donor profile.','စမ်းသပ်အီးမေးလ် အတည်ပြုပြီးပါပြီ။ Login ဝင်ပြီး profile ဖြည့်ပါ။'));}}>{text('Simulate email verification','အီးမေးလ် အတည်ပြုခြင်း စမ်းမယ်')}</button></>:mode==='sent'?<><div className="auth-demo-icon" aria-hidden="true">✉</div><p>{text('In the real version, an existing account would receive a reset link. No email was sent in this demo.','တကယ့်ဗားရှင်းတွင် အကောင့်ရှိပါက reset link ပို့မည်။ ဤ demo တွင် အီးမေးလ် မပို့ထားပါ။')}</p><button className="primary full" onClick={()=>change('reset')}>{text('Simulate opening reset link','Reset link ဖွင့်ခြင်း စမ်းမယ်')}</button></>:<form onSubmit={submit} className="create-form"><label htmlFor="demo-email">{text('Demo email','စမ်းသပ် အီးမေးလ်')}</label><input id="demo-email" type="email" autoComplete="off" required value={email} onChange={e=>setEmail(e.target.value)} placeholder="donor1@example.test" aria-describedby="demo-email-help"/><p id="demo-email-help" className="muted">{text('Fictional .test addresses only. Try donor1@example.test for an existing profile.',' .test အီးမေးလ်အတုသာ သုံးပါ။ ရှိပြီးသား profile အတွက် donor1@example.test ကို စမ်းပါ။')}</p>{mode!=='forgot'&&<><label htmlFor="demo-password">{text('Demo password','စမ်းသပ် စကားဝှက်')}</label><input id="demo-password" type="password" autoComplete="off" required value={password} onChange={e=>setPassword(e.target.value)} aria-describedby="demo-password-help"/><p id="demo-password-help" className="muted">{text('Use only','ဤစကားဝှက်ကိုသာ သုံးပါ —')} <code>{DEMO_PASSWORD}</code></p>{(mode==='signup'||mode==='reset')&&<><label htmlFor="demo-password-confirm">{text('Confirm demo password','စမ်းသပ် စကားဝှက် ပြန်ဖြည့်ပါ')}</label><input id="demo-password-confirm" type="password" autoComplete="off" required value={confirm} onChange={e=>setConfirm(e.target.value)}/></>}</>}{error&&<p className="auth-error" role="alert">{error}</p>}{message&&<p className="auth-message" role="status">{message}</p>}<button className="primary full">{title}</button></form>}
+ <div className="auth-links">{mode!=='login'&&<button className="text-button" onClick={()=>change('login')}>{text('Back to login','Login သို့ပြန်မယ်')}</button>}{mode==='login'&&<><button className="text-button" onClick={()=>change('forgot')}>{text('Forgot password?','စကားဝှက်မေ့နေသလား')}</button><button className="text-button" onClick={()=>change('signup')}>{text('Create demo account','စမ်းသပ်အကောင့် ဖွင့်မယ်')}</button></>}</div></section></section>;
+}
