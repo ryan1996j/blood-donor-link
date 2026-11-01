@@ -57,9 +57,9 @@ Choose a state/region first, then select a township from its complete dropdown l
 See [location data provenance](LOCATION_DATA.md) for source version, attribution and public-launch limitations. This local demo uses a MIMU-derived v9.4 snapshot, not the latest release.
 
 
-## Email account UI demo
+## Legacy email account UI demo (only when Supabase is not configured)
 
-No database, Supabase project or real email sender is connected. Only fictional `.test` addresses are accepted. Use the shared password `demo-only-123`; no passwords are stored.
+Without the environment configuration below, no database or real email sender is connected. Only fictional `.test` addresses are accepted. Use the shared password `demo-only-123`; no passwords are stored.
 
 - Donate opens account creation when logged out. Enter a new `.test` email and the shared demo password twice.
 - Click Simulate email verification, then log in with the same address and demo password to complete the donor profile.
@@ -79,3 +79,16 @@ Search shows 10 matching donors initially, with a visible/total count. Load more
 Visibility is the donor’s preference, separate from the automatic 90-day donation pause. Recording a donation preserves that preference. A donor who has left availability enabled returns automatically at the 90-day boundary; a donor who selected a break stays hidden. Existing hidden profiles stay hidden, because the old data does not reliably distinguish a manual break from an old donation-induced hide.
 
 Search cards contain no phone numbers. Opening an available donor profile displays its fictional `DEMO-` contact number. Hidden and paused profiles cannot reveal contact through this view. This is browser-only display logic, not server-side privacy protection; real contact data must not be entered.
+
+
+## Supabase test integration (current local configuration)
+
+The official Supabase JavaScript client is installed. Copy `.env.example` to `.env.local` and enter the project URL and publishable key. These are public browser configuration; never use a secret/service-role key. `.env.local` is ignored by Git. Restart `npm.cmd start` after configuration changes.
+
+When configured, the donor/profile entry points use real email/password signup, login, logout and email recovery. Verified owners can load, save, edit and delete their private donor profile and fake contact. The legacy local accounts are not migrated and do not work with real login. Public search remains entirely fictional and local; cloud profiles do not appear in it yet. Profile deletion leaves the login account intact. Demo reset never deletes cloud records.
+
+Live hosting: `https://blooddonor1.netlify.app/`. Supabase Site URL and the exact redirect allowlist entry now use this live URL. Netlify has the public project URL and publishable key configured as build environment variables. Keep confirmation enabled. Email delivery requires an allowed test recipient or custom SMTP; inspect Supabase's SMTP restrictions before inviting users. No mail credentials belong in frontend environment variables. Old invitation emails may retain old redirect destinations; use a fresh link. Invitation callbacks open the set-password form, with password entry performed by the account owner.
+
+For a manual test, register your own email with a unique password of at least eight characters, confirm the email on this computer with the server running, then save a fictional nickname and `DEMO-1234` contact. Reload, log out/in, edit, take a break and record a donation. The cloud pause ends at Yangon midnight on donation date + 90 days. Finally test email recovery and two separate accounts: account B must not see or edit account A's saved profile/contact. These live email and two-account checks remain pending user participation; automated build and tests do not establish that email delivery works.
+
+Profile and contact writes use two requests. If the profile succeeds and the contact fails, the UI reports the partial save and reloads the owner data for retry. No public read policy or search/contact RPC was added in this stage. Full account deletion, contact reveal protection and public search remain future work.
