@@ -1,5 +1,7 @@
 # BloodLink
 
+**Live website:** [Open BloodLink](https://blooddonor1.netlify.app/#)
+
 A mobile-friendly blood donor finder demo built with React, Tailwind CSS and Vite, with Burmese and English support.
 
 **Fictional data only.** Login is simulated, calling is disabled, and profile changes stay in browser storage. This is not a production service.
