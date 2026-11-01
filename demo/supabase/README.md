@@ -1,5 +1,15 @@
 # Supabase foundation review
 
+## Approved public search stage — 1 November 2026
+
+`004_public_search.sql` was approved and applied to hosted Supabase. Both public RPCs returned HTTP 200; direct anonymous reads of profile/contact tables remained denied. Initial public search returned zero eligible donors because existing profiles have not yet opted in. The frontend feature flag `VITE_PUBLIC_SEARCH_ENABLED` defaults to false and is enabled on Netlify for this release. Do not rerun the migration.
+
+The two read-only RPCs deliberately expose opted-in (`v4-search-test`) available, verified donors with DEMO contacts. Existing `v4-test` records stay private until their owner edits, consents to public listing, and saves. Search has only id, nickname, township, region, blood group; contact RPC has only nickname, township, region, DEMO phone. Email, donation dates, account metadata and private contact tables are not exposed. Table RLS and owner-only write policies remain intact. Contact opening rechecks availability on the server, including manual rest and 90 calendar days in Asia/Yangon. Search uses stable UUID cursors, ten visible rows plus one lookahead; it does not download all donors or return a total count.
+
+Local tests cover 58+ donors, hidden/paused/unverified/non-consenting/missing-contact exclusions, day-90 return, direct table denials, and simulated account B reading/updating account A's private records. Hosted two-account verification remains pending. Public contact endpoints can still be enumerated; fake contacts only, and rate limits/abuse controls are required before real phone numbers. UI-only reveal is not a security boundary.
+
+Review locally: `http://127.0.0.1:4173/cloud-search-preview.html` starts an isolated, in-memory PostgreSQL database with fake donors. It never reads/writes hosted profiles. The preview files are development-only HTML entries, outside the production build entry.
+
 ## Applied status on 1 November 2026
 
 Migrations 001 and 002 were executed in the approved BloodLink project through the Supabase dashboard. The verification query returned: 330 township records, 0 donor profiles, 0 contacts, 3 RLS-enabled tables, 9 policies, anonymous profile read false, anonymous contact read false.
