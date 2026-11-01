@@ -1,5 +1,11 @@
 # Supabase foundation review
 
+## Approved atomic profile save — 1 November 2026
+
+`005_atomic_profile_save.sql` was approved and applied to hosted Supabase. It adds an authenticated-only, SECURITY INVOKER RPC with a fixed empty search path. Owner identity comes from `auth.uid()`, never from a client parameter, and existing verified-owner RLS policies still apply. The function upserts profile and DEMO contact in one database statement; any error rolls both back. It returns the owner's saved profile plus demo phone only after both writes succeed. The account form calls this RPC, with no fallback to the old two-request flow. Existing records were not changed by the migration.
+
+Tests use isolated PGlite PostgreSQL, fictional users and contacts: new-profile rollback, existing-profile rollback on contact failure, failed profile validation preserving contact, successful create/update, preservation of creation time, caller identity, cross-account privacy, and rejection of unverified/anonymous callers. The approved rollout includes GitHub publishing and Netlify deployment. Real account save testing still requires an owner to sign in; rollback and cross-account behavior were tested against isolated local PostgreSQL, not by changing existing hosted records.
+
 ## Approved public search stage — 1 November 2026
 
 `004_public_search.sql` was approved and applied to hosted Supabase. Both public RPCs returned HTTP 200; direct anonymous reads of profile/contact tables remained denied. Initial public search returned zero eligible donors because existing profiles have not yet opted in. The frontend feature flag `VITE_PUBLIC_SEARCH_ENABLED` defaults to false and is enabled on Netlify for this release. Do not rerun the migration.

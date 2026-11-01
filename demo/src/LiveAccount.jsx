@@ -4,6 +4,7 @@ import {supabase,publicSearchEnabled} from './supabase.js';
 import {groups} from './data.js';
 import ProfileSaveSuccess from './ProfileSaveSuccess.jsx';
 import ProfileInfo from './ProfileInfo.jsx';
+import {saveProfile} from './saveProfile.js';
 
 const empty={nickname:'',phone:'DEMO-1234',blood_group:'',township_code:'',region_code:'',manual_available:true,last_donation_date:null};
 import {yangonToday,returnDate} from './profileDates.js';
@@ -55,13 +56,10 @@ export default function LiveAccount({lang,t,LocationFields,DonationHistory,initi
   const last=form.get('donatedBefore')==='yes'?String(form.get('donationDate')||''):null;
   if(last&&last>yangonToday())throw Error(txt('Donation date cannot be in the future.','အနာဂတ်ရက်ကို မရွေးပါနှင့်။'));
   const payload={id,nickname:draft.nickname.trim(),township_code:String(form.get('town')),region_code:String(form.get('region')),blood_group:draft.blood_group,manual_available:draft.manual_available,last_donation_date:last,consent_version:publicSearchEnabled?'v4-search-test':'v4-test'};
-  const result=await supabase.from('bloodlink_profiles').upsert(payload).select().single();if(result.error)throw result.error;
-  // Keep the saved profile visible to its owner if contact saving needs a retry.
-  const contact=await supabase.from('bloodlink_contacts').upsert({profile_id:id,phone:draft.phone});
-  if(contact.error){setVersion(v=>v+1);throw Error(txt('Profile saved, but contact could not be saved. Reload and retry. ','Profile သိမ်းပြီးပါပြီ။ ဖုန်းနံပါတ်ကို ပြန်သိမ်းပါ။ ')+contact.error.message);}
+  const savedProfile=await saveProfile(supabase,payload,draft.phone);
   if(owner.current!==id)return;
-  setDraft({...empty,...result.data,phone:draft.phone});setExists(true);setLoaded(true);
-  setEditing(false);setSaved({created:!exists,nickname:result.data.nickname});
+  setDraft({...empty,...savedProfile});setExists(true);setLoaded(true);
+  setEditing(false);setSaved({created:!exists,nickname:savedProfile.nickname});
  });};
  const logout=()=>run(async()=>{const {error}=await supabase.auth.signOut();if(error)throw error;change('login');});
  const remove=()=>{if(!window.confirm(txt('Delete your donor profile and demo contact? Your login account will remain.','Donor profile နှင့် ဖုန်းအတုကို ဖျက်မလား။ Login အကောင့် ကျန်ရှိမည်။')))return;run(async()=>{const result=await supabase.from('bloodlink_profiles').delete().eq('id',id).select('id');if(result.error)throw result.error;if(!result.data.length)throw Error('Profile was not deleted. Reload and try again.');setVersion(v=>v+1);setMessage(txt('Profile deleted. Your login account remains.','Profile ဖျက်ပြီးပါပြီ။ Login အကောင့် ကျန်ရှိပါသည်။'));});};
