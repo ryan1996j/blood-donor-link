@@ -1,19 +1,20 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {supabase} from './supabase.js';
 import {groups} from './data.js';
+import ProfileSaveSuccess from './ProfileSaveSuccess.jsx';
 
 const empty={nickname:'',phone:'DEMO-1234',blood_group:'',township_code:'',region_code:'',manual_available:true,last_donation_date:null};
 import {yangonToday,returnDate} from './profileDates.js';
 
-export default function LiveAccount({lang,t,LocationFields,DonationHistory,initialMode='login',initialError='',onSession,onRecovered}){
+export default function LiveAccount({lang,t,LocationFields,DonationHistory,initialMode='login',initialError='',onSession,onRecovered,onHome}){
  const txt=(en,my)=>lang==='my'?my:en;
- const [session,setSession]=useState(null),[loading,setLoading]=useState(true),[loaded,setLoaded]=useState(false),[exists,setExists]=useState(false),[draft,setDraft]=useState(empty),[mode,setMode]=useState(initialMode),[email,setEmail]=useState(''),[password,setPassword]=useState(''),[confirm,setConfirm]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState(initialError),[message,setMessage]=useState(''),[version,setVersion]=useState(0);
+ const [session,setSession]=useState(null),[loading,setLoading]=useState(true),[loaded,setLoaded]=useState(false),[exists,setExists]=useState(false),[draft,setDraft]=useState(empty),[mode,setMode]=useState(initialMode),[email,setEmail]=useState(''),[password,setPassword]=useState(''),[confirm,setConfirm]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState(initialError),[message,setMessage]=useState(''),[version,setVersion]=useState(0),[saved,setSaved]=useState(null);
  const owner=useRef(null),request=useRef(0);
  useEffect(()=>{
   const {data:{subscription}}=supabase.auth.onAuthStateChange((event,next)=>{
    owner.current=next?.user.id||null;setSession(next);onSession(Boolean(next));setLoading(false);
    if(event==='PASSWORD_RECOVERY')setMode('reset');
-   if(!next){setDraft(empty);setExists(false);setLoaded(false);}
+   if(!next){setSaved(null);setDraft(empty);setExists(false);setLoaded(false);}
   });
   return()=>subscription.unsubscribe();
  },[]);
@@ -56,7 +57,9 @@ export default function LiveAccount({lang,t,LocationFields,DonationHistory,initi
   // Keep the saved profile visible to its owner if contact saving needs a retry.
   const contact=await supabase.from('bloodlink_contacts').upsert({profile_id:id,phone:draft.phone});
   if(contact.error){setVersion(v=>v+1);throw Error(txt('Profile saved, but contact could not be saved. Reload and retry. ','Profile သိမ်းပြီးပါပြီ။ ဖုန်းနံပါတ်ကို ပြန်သိမ်းပါ။ ')+contact.error.message);}
-  setVersion(v=>v+1);setMessage(txt('Profile saved securely. Public search still uses fictional demo donors.','Profile သိမ်းပြီးပါပြီ။ အများရှာဖွေမှုတွင် အလှူရှင်အတုများသာ ပြထားသေးသည်။'));
+  if(owner.current!==id)return;
+  setDraft({...empty,...result.data,phone:draft.phone});setExists(true);setLoaded(true);
+  setSaved({created:!exists,nickname:result.data.nickname});
  });};
  const logout=()=>run(async()=>{const {error}=await supabase.auth.signOut();if(error)throw error;change('login');});
  const remove=()=>{if(!window.confirm(txt('Delete your donor profile and demo contact? Your login account will remain.','Donor profile နှင့် ဖုန်းအတုကို ဖျက်မလား။ Login အကောင့် ကျန်ရှိမည်။')))return;run(async()=>{const result=await supabase.from('bloodlink_profiles').delete().eq('id',id).select('id');if(result.error)throw result.error;if(!result.data.length)throw Error('Profile was not deleted. Reload and try again.');setVersion(v=>v+1);setMessage(txt('Profile deleted. Your login account remains.','Profile ဖျက်ပြီးပါပြီ။ Login အကောင့် ကျန်ရှိပါသည်။'));});};
@@ -79,8 +82,9 @@ export default function LiveAccount({lang,t,LocationFields,DonationHistory,initi
  <h2>{t.visibilityTitle}</h2><p className="muted">{t.visibilityHelp}</p><div className="visibility-control"><span id="live-availability">{t.searchVisibility}</span><button type="button" role="switch" aria-labelledby="live-availability" aria-checked={draft.manual_available} className="visibility-switch" data-on={draft.manual_available} onClick={()=>setDraft({...draft,manual_available:!draft.manual_available})}><span/></button></div><p className="muted">{txt('Save changes to apply this setting. Public listings will be connected in the next stage.','ဤရွေးချယ်မှုအတွက် သိမ်းမည်ကို နှိပ်ပါ။ အများရှာဖွေမှုကို နောက်အဆင့်တွင် ချိတ်ဆက်ပါမည်။')}</p>
  {paused&&<p className="pause-notice">{t.pauseAccountSafe} {t.returnDate}: {new Intl.DateTimeFormat(lang==='my'?'my-MM':'en-GB',{dateStyle:'medium',timeZone:'Asia/Yangon'}).format(resume)}</p>}
  {!exists&&<div className="profile-consent"><div className="profile-consent-heading"><h3>{txt('Before you save','မသိမ်းမီ အတည်ပြုပါ')}</h3><span>{txt('Required','ဖြည့်ရန်လိုအပ်သည်')}</span></div><label className="profile-consent-option" htmlFor="profile-consent"><input id="profile-consent" name="profileConsent" type="checkbox" required aria-describedby="profile-consent-help"/><span className="profile-consent-copy"><strong>{txt('I agree to save my test profile','စမ်းသပ် profile ကို သိမ်းရန် သဘောတူပါသည်')}</strong><span id="profile-consent-help">{txt('BloodLink will store your donor profile and demo contact. Use a nickname and a DEMO phone number.','BloodLink တွင် သင့်အလှူရှင် profile နှင့် ဖုန်းအတုကို သိမ်းမည်။ နာမည်ပြောင်နှင့် DEMO ဖုန်းနံပါတ်ကိုသာ သုံးပါ။')}</span></span></label></div>}
- <button className="primary full">{busy?txt('Saving…','သိမ်းနေသည်…'):t.save}</button>
+ <button className="primary full">{busy?txt('Saving…','သိမ်းနေသည်…'):exists?txt('Save changes','ပြင်ဆင်ချက်များ သိမ်းမယ်'):txt('Save profile','Profile သိမ်းမယ်')}</button>
  {exists&&<><button type="button" className="secondary full mt-3" disabled={Boolean(paused)} onClick={donate}>{t.donated}</button><button type="button" className="danger full mt-3" onClick={remove}>{t.deleteButton}</button><p className="muted">{txt('Deletes your donor profile and contact, not your email login account.','Donor profile နှင့် contact ကိုသာ ဖျက်မည်။ Email login အကောင့် မဖျက်ပါ။')}</p></>}
  </fieldset></form>}</>}
+ <ProfileSaveSuccess saved={saved} lang={lang} onDone={()=>{setSaved(null);onHome();}} onClose={()=>setSaved(null)} onView={()=>{setSaved(null);document.getElementById('live-nickname')?.focus();}}/>
  </section>;
 }
