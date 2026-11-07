@@ -1,6 +1,8 @@
+import EmailCheckNotice from './EmailCheckNotice.jsx';
+import {ModerationPanel} from './Moderation.jsx';
 import PasswordInput from './PasswordInput.jsx';
 import React,{useEffect,useRef,useState} from 'react';
-import {supabase,publicSearchEnabled} from './supabase.js';
+import {supabase,publicSearchEnabled,moderationEnabled} from './supabase.js';
 import {groups} from './data.js';
 import ProfileSaveSuccess from './ProfileSaveSuccess.jsx';
 import ProfileInfo from './ProfileInfo.jsx';
@@ -12,6 +14,7 @@ import {yangonToday,returnDate} from './profileDates.js';
 export default function LiveAccount({lang,t,LocationFields,DonationHistory,initialMode='login',initialError='',onSession,onRecovered,onHome}){
  const txt=(en,my)=>lang==='my'?my:en;
  const [session,setSession]=useState(null),[loading,setLoading]=useState(true),[loaded,setLoaded]=useState(false),[exists,setExists]=useState(false),[draft,setDraft]=useState(empty),[mode,setMode]=useState(initialMode),[email,setEmail]=useState(''),[password,setPassword]=useState(''),[confirm,setConfirm]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState(initialError),[message,setMessage]=useState(''),[version,setVersion]=useState(0),[saved,setSaved]=useState(null),[editing,setEditing]=useState(false);
+ const [emailNotice,setEmailNotice]=useState(null);
  const owner=useRef(null),request=useRef(0);
  useEffect(()=>{
   const {data:{subscription}}=supabase.auth.onAuthStateChange((event,next)=>{
@@ -32,9 +35,9 @@ export default function LiveAccount({lang,t,LocationFields,DonationHistory,initi
   }catch(e){if(active)setError(e.message);}})();
   return()=>{active=false;};
  },[id,version]);
- const run=async work=>{if(busy)return;setBusy(true);setError('');setMessage('');try{await work();}catch(e){setError(e.message||txt('Could not connect. Try again.','ချိတ်ဆက်မရပါ။ ပြန်စမ်းပါ။'));}finally{setBusy(false);}};
+ const run=async work=>{if(busy)return;setBusy(true);setError('');setMessage('');setEmailNotice(null);try{await work();}catch(e){setError(e.message||txt('Could not connect. Try again.','ချိတ်ဆက်မရပါ။ ပြန်စမ်းပါ။'));}finally{setBusy(false);}};
  const redirect=window.location.origin+'/';
- const change=next=>{setMode(next);setError('');setMessage('');setPassword('');setConfirm('');};
+ const change=next=>{setEmailNotice(null);setMode(next);setError('');setMessage('');setPassword('');setConfirm('');};
  const auth=e=>{e.preventDefault();run(async()=>{
   const address=email.trim();let result;
   if(mode==='forgot'){
@@ -48,8 +51,8 @@ export default function LiveAccount({lang,t,LocationFields,DonationHistory,initi
   if(result.error)throw result.error;
   setPassword('');setConfirm('');
   if(mode==='reset'){onRecovered();setMode('login');setMessage(txt('Password updated.','စကားဝှက် ပြောင်းပြီးပါပြီ။'));}
-  else if(mode==='signup')setMessage(txt('Check your email for a confirmation link, then return here to log in.','အီးမေးလ်ထဲက အတည်ပြုလင့်ခ်ကို နှိပ်ပြီး Login ပြန်ဝင်ပါ။'));
-  else if(mode==='forgot')setMessage(txt('If an account exists, a reset link will be sent. Check your inbox and spam folder.','အကောင့်ရှိပါက reset link ပို့ပေးပါမည်။ Inbox နှင့် Spam ကို စစ်ပါ။'));
+  else if(mode==='signup')setEmailNotice({kind:'signup',email:address});
+  else if(mode==='forgot')setEmailNotice({kind:'forgot',email:address});
  });};
  const save=e=>{e.preventDefault();const form=new FormData(e.currentTarget);run(async()=>{
   if(!id||owner.current!==id)throw Error('Please log in again.');
@@ -68,11 +71,13 @@ export default function LiveAccount({lang,t,LocationFields,DonationHistory,initi
  const title=mode==='signup'?txt('Create an account','အကောင့်ဖွင့်မယ်'):mode==='forgot'?txt('Reset password by email','အီးမေးလ်ဖြင့် စကားဝှက် ပြန်သတ်မှတ်မယ်'):mode==='reset'?txt('Set a new password','စကားဝှက်အသစ် သတ်မှတ်မယ်'):txt('Log in','Login ဝင်မယ်');
  return <section className="dashboard-heading"><h1>{session&&mode!=='reset'?t.myProfile:title}</h1><p className="intro">{publicSearchEnabled?txt('Use a nickname and a DEMO phone number. When you opt in and are available, your profile can appear in search. Email is never displayed.','နာမည်ပြောင်နှင့် DEMO ဖုန်းနံပါတ်သာ သုံးပါ။ သဘောတူထားပြီး အဆင်သင့်ရှိပါက ရှာဖွေမှုတွင် ပါဝင်နိုင်ပါသည်။ အီးမေးလ်ကို မပြပါ။'):txt('Test stage: real email login and private cloud profile saving. Use a nickname and a DEMO phone number. Search results are still fictional.','စမ်းသပ်အဆင့် — အီးမေးလ်အစစ်ဖြင့် Login ဝင်ပြီး profile ကို သိမ်းနိုင်ပါပြီ။ နာမည်ပြောင်နှင့် DEMO ဖုန်းနံပါတ်သာ သုံးပါ။ ရှာဖွေရလဒ်များက အတုများသာ ဖြစ်သည်။')}</p>
  {error&&<p role="alert" className="auth-error">{error}</p>}{message&&<p role="status" className="auth-message">{message}</p>}
+ {emailNotice&&<EmailCheckNotice {...emailNotice} lang={lang}/>}
  {loading?<p role="status">{txt('Loading account…','အကောင့် ဖွင့်နေသည်…')}</p>:!session||mode==='reset'?<form className="dashboard-panel max-w-xl create-form" onSubmit={auth}><fieldset disabled={busy} className="border-0 p-0 m-0 min-w-0">
  {mode!=='reset'&&<><label htmlFor="live-email">Email</label><input id="live-email" type="email" required autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)}/></>}
  {mode!=='forgot'&&<><label htmlFor="live-password">{txt('Password','စကားဝှက်')}</label><PasswordInput lang={lang} id="live-password" required minLength={8} autoComplete={mode==='login'?'current-password':'new-password'} value={password} onChange={e=>setPassword(e.target.value)}/><p className="muted">{txt('Use at least 8 characters. Do not use the old demo password.','အနည်းဆုံး ၈ လုံး သုံးပါ။ Demo စကားဝှက်ဟောင်းကို မသုံးပါနှင့်။')}</p>{mode!=='login'&&<><label htmlFor="live-confirm">{txt('Confirm password','စကားဝှက် ပြန်ဖြည့်ပါ')}</label><PasswordInput lang={lang} id="live-confirm" required minLength={8} autoComplete="new-password" value={confirm} onChange={e=>setConfirm(e.target.value)}/></>}</>}
+ {mode==='signup'&&<p className="auth-form-guide">{txt('Use an email you can open. After signing up, check your inbox to confirm your account.','သင်ဖွင့်ကြည့်နိုင်သော အီးမေးလ်ကို သုံးပါ။ အကောင့်ဖွင့်ပြီးပါက Inbox ထဲက လင့်ခ်ဖြင့် အတည်ပြုပါ။')}</p>}{mode==='forgot'&&<p className="auth-form-guide">{txt('Enter the email you used to sign up. Then check your inbox for the next steps.','အကောင့်ဖွင့်စဉ် သုံးခဲ့သော အီးမေးလ်ကို ဖြည့်ပါ။ ထို့နောက် ဆက်လုပ်ရန် အဆင့်များကို Inbox တွင် စစ်ပါ။')}</p>}
  <button className="primary full">{busy?txt('Please wait…','ခဏစောင့်ပါ…'):title}</button><div className="auth-links">{mode==='login'?<><button type="button" className="text-button" onClick={()=>change('signup')}>{txt('Create account','အကောင့်ဖွင့်မယ်')}</button><button type="button" className="text-button" onClick={()=>change('forgot')}>{txt('Forgot password?','စကားဝှက်မေ့နေသလား')}</button></>:<button type="button" className="text-button" onClick={()=>session?logout():change('login')}>{txt('Back to login','Login သို့ပြန်မယ်')}</button>}</div></fieldset></form>:<>
- <button className="secondary" disabled={busy} onClick={logout}>{t.logout}</button>
+ <button className="secondary" disabled={busy} onClick={logout}>{t.logout}</button>{moderationEnabled&&<ModerationPanel key={id} lang={lang}/>}
  {!loaded?<><p>{txt('Loading your saved profile…','Profile ဖွင့်နေသည်…')}</p><button className="secondary" onClick={()=>setVersion(v=>v+1)}>{txt('Retry','ပြန်စမ်းမယ်')}</button></>:<form className="dashboard-panel max-w-xl create-form" onSubmit={save}><fieldset disabled={busy} className="border-0 p-0 m-0 min-w-0"><h2>{exists?t.myProfile:t.createNav}</h2>
 {exists&&!editing?<ProfileInfo lang={lang} nickname={draft.nickname} phone={draft.phone} blood={draft.blood_group} town={draft.township_code} lastDonation={draft.last_donation_date} visible={draft.manual_available} onEdit={()=>setEditing(true)}/>:<>
  <label htmlFor="live-nickname">{t.aliasLabel}</label><input id="live-nickname" required maxLength={50} value={draft.nickname} onChange={e=>setDraft({...draft,nickname:e.target.value})}/>

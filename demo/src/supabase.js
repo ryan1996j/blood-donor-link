@@ -5,3 +5,6 @@ const localDemo=import.meta.env.DEV&&new URLSearchParams(window.location.search)
 export const supabase=!localDemo&&url&&key?createClient(url,key):null;
 
 export const publicSearchEnabled=Boolean(supabase)&&import.meta.env.VITE_PUBLIC_SEARCH_ENABLED==='true';
+
+// Server-side admin authorization is enforced by the applied moderation RPCs.
+export const moderationEnabled=Boolean(supabase)&&import.meta.env.VITE_MODERATION_ENABLED==='true';
